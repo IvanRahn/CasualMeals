@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cuisine:</strong>
+  <%= @meal.cuisine %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meal.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @meal.price %>
+</p>
+
+<p>
+  <strong>Delivery time:</strong>
+  <%= @meal.delivery_time %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @meal.image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @meal.user %>
+</p>
+
+<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'Back', meals_path %>
