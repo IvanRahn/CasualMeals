@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum type_of_user: {'customer':0, 'chef':1}
+  has_one :chef
 end
