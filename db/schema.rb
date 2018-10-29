@@ -10,14 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_10_29_213432) do
-=======
-ActiveRecord::Schema.define(version: 2018_10_29_221956) do
->>>>>>> origin/user-authentication
+ActiveRecord::Schema.define(version: 2018_10_29_224948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chefs", force: :cascade do |t|
+    t.integer "delivery_range"
+    t.time "working_hours"
+    t.string "working_days"
+    t.boolean "verification"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chefs_on_user_id"
+  end
 
   create_table "meals", force: :cascade do |t|
     t.string "cuisine"
@@ -25,10 +32,10 @@ ActiveRecord::Schema.define(version: 2018_10_29_221956) do
     t.integer "price"
     t.integer "delivery_time"
     t.text "image"
-    t.bigint "user_id"
+    t.bigint "chef_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_meals_on_user_id"
+    t.index ["chef_id"], name: "index_meals_on_chef_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,17 +46,15 @@ ActiveRecord::Schema.define(version: 2018_10_29_221956) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-=======
     t.string "first_name"
     t.string "last_name"
     t.integer "phone_number"
     t.string "address"
     t.integer "type_of_user"
->>>>>>> origin/user-authentication
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "meals", "users"
+  add_foreign_key "chefs", "users"
+  add_foreign_key "meals", "users", column: "chef_id"
 end
