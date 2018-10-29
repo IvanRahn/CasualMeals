@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum type_of_user: {'customer':0 'chef':1}
+  enum type_of_user: {'customer':0, 'chef':1}
 end
