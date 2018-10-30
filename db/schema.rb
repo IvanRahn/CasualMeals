@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_002630) do
+ActiveRecord::Schema.define(version: 2018_10_30_032622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_002630) do
     t.text "description"
     t.integer "price"
     t.integer "delivery_time"
-    t.text "image"
+    t.text "image", default: "http://mamadips.com/wp-content/uploads/2016/11/defimage.gif"
     t.bigint "chef_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
