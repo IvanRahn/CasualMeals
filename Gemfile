@@ -61,3 +61,5 @@ gem "devise", "~> 4.5"
 gem "foundation-rails", "~> 5.4"
 
 gem "autoprefixer-rails", "~> 9.3"
+
+gem "faker", "~> 1.9"
