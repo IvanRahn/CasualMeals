@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_002630) do
+ActiveRecord::Schema.define(version: 2018_10_30_031301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_002630) do
     t.integer "delivery_range"
     t.time "working_hours"
     t.string "working_days"
-    t.boolean "verification"
+    t.boolean "verification", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
