@@ -58,4 +58,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.5"
 
+<<<<<<< HEAD
 gem "foundation-rails", "~> 5.4"
+=======
+gem "carrierwave", "~> 1.2"
+
+gem "mini_magick", "~> 4.9"
+>>>>>>> origin/uploader

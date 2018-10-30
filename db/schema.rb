@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_031301) do
     t.text "description"
     t.integer "price"
     t.integer "delivery_time"
-    t.text "image"
+    t.text "image", default: "http://mamadips.com/wp-content/uploads/2016/11/defimage.gif"
     t.bigint "chef_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
