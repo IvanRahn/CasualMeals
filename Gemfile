@@ -62,3 +62,5 @@ gem "foundation-rails", "~> 5.4"
 gem "carrierwave", "~> 1.2"
 
 gem "mini_magick", "~> 4.9"
+
+gem "autoprefixer-rails", "~> 9.3"
