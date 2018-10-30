@@ -22,12 +22,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @meal.image %>
+  <%= image_tag(@meal.image) %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @meal.chef %>
+  <%= @meal.chef.user.first_name %>
 </p>
 
 <%= link_to 'Edit', edit_meal_path(@meal) %> |
