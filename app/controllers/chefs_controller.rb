@@ -1,40 +1,46 @@
 class ChefsController < ApplicationController
-  #authenticate that the user is a chef in order to allow access to CRUD actions and their specific dishes, all chefs can view each other's meals
+  #authenticate that the user is a chef in order to allow access to CRUD actions and their specific dishes, all chefs can view each other's chefs
   #customer should only have show access
   before_action :authenticate_user!
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
 
-  # GET /meals/1
-  # GET /meals/1.json
+  # GET /chefs/1
+  # GET /chefs/1.json
+  def index
+    @chefs = Chef.all
+  end
+
   def show
   end
 
-  # GET /meals/new
+  # GET /chefs/new
   def new
     @chef = Chef.new
-    @chef.user_id = current_user.id
   end
 
-  # GET /meals/1/edit
+  # GET /chefs/1/edit
   def edit
   end
 
-  # POST /meals
-  # POST /meals.json
+  # POST /chefs
+  # POST /chefs.json
   def create
     @chef = Chef.new(chef_params)
-redirect_to meals_path
+    @chef.user_id = current_user.id
+
     respond_to do |format|
       if @chef.save
-        format.html { redirect_to @chef, notice: "Chef was successfully created." }
+        format.html { redirect_to meals_path, notice: "Chef was successfully created." }
+        format.json { render :show, status: :created, location: @chef }
       else
         format.html { render :new }
+        format.json { render json: @chef.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /meals/1
-  # PATCH/PUT /meals/1.json
+  # PATCH/PUT /chefs/1
+  # PATCH/PUT /chefs/1.json
   def update
     respond_to do |format|
       if @chef.update(chef_params)
@@ -45,8 +51,8 @@ redirect_to meals_path
     end
   end
 
-  # DELETE /meals/1
-  # DELETE /meals/1.json
+  # DELETE /chefs/1
+  # DELETE /chefs/1.json
   def destroy
     @chef.destroy
     respond_to do |format|
