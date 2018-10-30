@@ -1,0 +1,12 @@
+<h1> transactions </h1>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.user_id %></td>
+        <td><%= transaction.description %></td>
+        <td><%= transaction.delivery_address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

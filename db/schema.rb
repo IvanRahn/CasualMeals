@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_224948) do
+ActiveRecord::Schema.define(version: 2018_10_30_002630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,18 +26,34 @@ ActiveRecord::Schema.define(version: 2018_10_29_224948) do
     t.index ["user_id"], name: "index_chefs_on_user_id"
   end
 
+  create_table "meal_transactions", force: :cascade do |t|
+    t.bigint "meal_id"
+    t.bigint "transaction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meal_transactions_on_meal_id"
+    t.index ["transaction_id"], name: "index_meal_transactions_on_transaction_id"
+  end
+
   create_table "meals", force: :cascade do |t|
     t.string "cuisine"
     t.text "description"
     t.integer "price"
     t.integer "delivery_time"
     t.text "image"
-    t.bigint "user_id"
     t.bigint "chef_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_meals_on_user_id"
     t.index ["chef_id"], name: "index_meals_on_chef_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.text "description"
+    t.text "delivery_address"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,7 +73,9 @@ ActiveRecord::Schema.define(version: 2018_10_29_224948) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "meals", "users"
   add_foreign_key "chefs", "users"
+  add_foreign_key "meal_transactions", "meals"
+  add_foreign_key "meal_transactions", "transactions"
   add_foreign_key "meals", "users", column: "chef_id"
+  add_foreign_key "transactions", "users"
 end
