@@ -3,18 +3,20 @@
     <ul>
       
 <%# where customer = 0 and chef = 1 %>
-    <%# <% if current_user.type_of_user == 0 %>
-      <li><%= link_to "Home", '#' %></li>
+<% if !current_user.nil?  %>
+  <% if current_user.type_of_user == 'customer' %>
+      <li><%= link_to "Home", meals_path %></li>
       <li><%= link_to "Search", '#' %></li>
-      <li><%= link_to "Upload", '#' %></li>
-      <li><%= link_to "Account", '#' %></li>
-
-    <%# <% elsif current_user.type_of_user == 1 %>
-      <li><%= link_to "Home", '#' %></li>
       <li><%= link_to "Order History", '#' %></li>
+      <li><%= link_to "Account", edit_user_registration_path %></li>
+
+  <% elsif current_user.type_of_user == 'chef' && current_user.chef %> 
+      <li><%= link_to "Home", meals_path %></li>
+      <li><%= link_to "Upload", '#' %></li>
       <li><%= link_to "Sales History", '#' %></li>
-      <li><%= link_to "Account", '#' %></li>
-    <%# <% end %>
+      <li><%= link_to "Account", edit_user_registration_path %></li>
+  <% end %> 
+<% end  %>
       
 
     </ul>
