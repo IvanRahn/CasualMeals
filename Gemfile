@@ -64,3 +64,5 @@ gem "carrierwave", "~> 1.2"
 gem "mini_magick", "~> 4.9"
 
 gem "autoprefixer-rails", "~> 9.3"
+
+gem "faker", "~> 1.9"
