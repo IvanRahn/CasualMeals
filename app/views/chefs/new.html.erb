@@ -1,0 +1,26 @@
+<h1> Casual Meals </h1>
+<h2> Chef Sign up <h2>
+
+<%= form_with(model: chef, local: true) do |f| %>
+
+    <div class="field">
+    <%= f.label :delivery_range %><br />
+    <%= f.number_field :delivery_range, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :working_hours %><br />
+    <%= f.time_field :working_hours %>
+  </div>
+
+  <div class="field">
+      <%= f.label :working_days %><br />
+      <%= f.week_field :working_days %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+  <% end %>
+
+  
