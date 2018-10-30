@@ -13,7 +13,6 @@ class ChefsController < ApplicationController
   def new
     @chef = Chef.new
     @chef.user_id = current_user.id
-    @chef.type_of_user = "chef"
   end
 
   # GET /meals/1/edit
@@ -23,8 +22,8 @@ class ChefsController < ApplicationController
   # POST /meals
   # POST /meals.json
   def create
-    @chef = Chef.new(meal_params)
-
+    @chef = Chef.new(chef_params)
+redirect_to meals_path
     respond_to do |format|
       if @chef.save
         format.html { redirect_to @chef, notice: "Chef was successfully created." }
@@ -64,6 +63,6 @@ class ChefsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def chef_params
-    params.require(:meal).permit(:cuisine, :description, :price, :delivery_time, :image, :user_id)
+    params.require(:chef).permit(:delivery_range, :working_hours, :working_days, :verification, :user_id)
   end
 end
