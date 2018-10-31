@@ -10,18 +10,33 @@ class TransactionsController < ApplicationController
   end
 
   def show
+    
   end
 
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
+    MealTransaction.create(meal_id: meal_id, transaction_id: transaction_id)
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: "Transaction created." }
+        format.html { redirect_to transaction_path(@transaction), notice: "Transaction created." }
       else
         format.html { render :new }
       end
     end
+  end
+
+
+  def calculate
+    @order = Transactions.first.meals
+    @order_qty = @purchase.count
+    @total = 0
+    i = 0
+    while i < @order_qty
+      @total += order[i].price
+      i += 1
+    end
+    render "show"
   end
 
   private
