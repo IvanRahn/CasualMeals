@@ -14,4 +14,15 @@ class TransactionController < ApplicationController
           end
         end
       end
+
+      # def calculate
+      #   @qty = 
+      #   @price = 
+
+      #   @total = @qty * @price
+
+      #   render transaction
+      # end
+
+
 end

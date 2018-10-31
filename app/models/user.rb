@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   enum type_of_user: {'customer':0, 'chef':1}
   has_one :chef
-  has_many :transactions
+  has_many :orders
 end

@@ -1,7 +1,7 @@
 class Meal < ApplicationRecord
   belongs_to :chef
   has_many :meal_transactions
-  has_many :transactions, through: :meal_transactions
+  has_many :orders, through: :meal_transactions
   mount_uploader :image, MealImageUploader
 
   def chef_name
