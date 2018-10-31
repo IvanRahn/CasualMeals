@@ -55,7 +55,6 @@ class MealsController < ApplicationController
     respond_to do |format|
       if @meal.update(meal_params)
         format.html { redirect_to @meal, notice: "Meal was successfully updated." }
-        format.html { redirect_to @meal, notice: "Meal was successfully updated." }
         format.json { render :show, status: :ok, location: @meal }
       else
         format.html { render :edit }
