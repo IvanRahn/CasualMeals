@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :chefs
   resources :meals
   resources :transactions
+  post '/transactions/charges', to:'transaction#charge', as: 'payment'
 end
