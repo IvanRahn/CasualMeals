@@ -1,7 +1,7 @@
 class ChefsController < ApplicationController
   #authenticate that the user is a chef in order to allow access to CRUD actions and their specific dishes, all chefs can view each other's chefs
   #customer should only have show access
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
 
   # GET /chefs/1
