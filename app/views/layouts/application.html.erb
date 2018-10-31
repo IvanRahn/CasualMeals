@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CasualMeals</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete if !current_user.nil? %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete if !current_user.nil? %>
 
     <%= yield %>
-    <%= render 'layouts/navbar' %> 
+     <%= render 'layouts/navbar' %> 
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
