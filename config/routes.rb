@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users, path: "", path_names: {sign_in: "login", sign_out: "logout", sign_up: "register"}
   resources :chefs
   resources :meals 
-    resources :transactions, only: [:new, :create, :show, :index]
+  resources :transactions, except: [:edit, :update]
+  post "/process_payment" => "pages#process_payment", as: "payment"
+
   
 end
