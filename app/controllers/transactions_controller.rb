@@ -35,6 +35,26 @@ class TransactionsController < ApplicationController
       else
         format.html { render :edit }
       end
+  end
+
+  def charge
+  
+    customer = Stripe::Customer.create(
+    :email => params[:stripeEmail],
+    :source  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+    :customer    => customer.id,
+    :amount      => @total,
+    :description => 'Rails Stripe customer',
+    :currency    => 'aud'
+    # :source => params[:stripeToken]
+    )
+
+    rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to meals_path
     end
   end
 
@@ -63,4 +83,16 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:description, :delivery_address, :user_id, :meal_id)
   end
+
+  def amount_to_be_charged
+    @order = Transactions.first.meals
+    @order_qty = @purchase.count
+    @total = 0
+    i = 0
+    while i < @order_qty
+      @total += order[i].price
+      i += 1
+    end
+  end
+
 end
