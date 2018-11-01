@@ -29,7 +29,6 @@ class TransactionsController < ApplicationController
     session[:transaction_id] = @transaction.id
   end
 
-<<<<<<< HEAD
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
@@ -37,7 +36,7 @@ class TransactionsController < ApplicationController
       else
         format.html { render :edit }
       end
-=======
+  end
 
   def charge
   
@@ -57,7 +56,6 @@ class TransactionsController < ApplicationController
     rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to meals_path
->>>>>>> origin/stripe-subbranch-transactions
     end
   end
 
@@ -98,4 +96,4 @@ class TransactionsController < ApplicationController
     end
   end
 
-#end
+end
