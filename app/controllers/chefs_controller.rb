@@ -39,9 +39,15 @@ class ChefsController < ApplicationController
     end
   end
 
+  def working
+    current_user.chef.toggle(:currently_working).save
+    redirect_to '/meals'
+  end
+
   # PATCH/PUT /chefs/1
   # PATCH/PUT /chefs/1.json
   def update
+    
     respond_to do |format|
       if @chef.update(chef_params)
         format.html { redirect_to @chef, notice: "Chef was successfully updated." }
@@ -60,6 +66,7 @@ class ChefsController < ApplicationController
     end
   end
 
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +76,6 @@ class ChefsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def chef_params
-    params.require(:chef).permit(:delivery_range, :working_hours, :working_days, :verification, :user_id)
+    params.require(:chef).permit(:delivery_range, :verification, :user_id, :currently_working)
   end
 end
