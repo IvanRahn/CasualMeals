@@ -25,7 +25,7 @@
         <td><%= image_tag(meal.image_url)%></td>
         <td><%= meal.chef_name %></td>
         <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Buy', new_transaction_path %></td>
+        <td><%= link_to 'Buy', new_transaction_path(meal_id: meal.id) %></td>
 
         <% if current_user.chef? %>
         <td><%= link_to 'Edit', edit_meal_path(meal) %></td>

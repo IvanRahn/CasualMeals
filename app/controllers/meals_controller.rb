@@ -1,9 +1,4 @@
 class MealsController < ApplicationController
-  #authenticate that the user is a chef
-  #authenticate that the user is a chef
-  #authenticate that the user is a chef in order to allow access to CRUD actions and their specific dishes, all chefs can view each other's meals
-  #customer should only have show access
-  # before_action :authenticate_user!
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   # GET /meals
@@ -40,7 +35,6 @@ class MealsController < ApplicationController
     respond_to do |format|
       if @meal.save
         format.html { redirect_to @meal, notice: "Meal was successfully created." }
-        format.html { redirect_to @meal, notice: "Meal was successfully created." }
         format.json { render :show, status: :created, location: @meal }
       else
         format.html { render :new }
@@ -54,7 +48,6 @@ class MealsController < ApplicationController
   def update
     respond_to do |format|
       if @meal.update(meal_params)
-        format.html { redirect_to @meal, notice: "Meal was successfully updated." }
         format.html { redirect_to @meal, notice: "Meal was successfully updated." }
         format.json { render :show, status: :ok, location: @meal }
       else
