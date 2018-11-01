@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :chefs
   resources :meals
   resources :transactions
+  put "/meals" => "chefs#working", as: "chef_update"
 end
