@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :chefs
   resources :meals 
   resources :transactions, except: [:edit, :update]
-  post "/process_payment" => "pages#process_payment", as: "payment"
+  post "/process_payment" => "transactions#process_payment", as: "payment"
 
   
 end

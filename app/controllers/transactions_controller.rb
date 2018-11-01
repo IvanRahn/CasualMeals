@@ -15,6 +15,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
+    process_payment
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
     respond_to do |format|
@@ -26,8 +27,6 @@ class TransactionsController < ApplicationController
     end
     MealTransaction.create(meal_id: session[:meal_id].to_i, transaction_id: @transaction.id)
     session[:transaction_id] = @transaction.id
-
-    process_payment
   end
 
   def update
@@ -53,7 +52,6 @@ class TransactionsController < ApplicationController
       # :source => params[:stripeToken],
 
     )
-    redirect_to root_path
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to "/"
