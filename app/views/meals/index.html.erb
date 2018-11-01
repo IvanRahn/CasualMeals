@@ -42,12 +42,12 @@
 
 
 <% if current_user.chef.currently_working == true %>
-  <div class='bg-green'>
+  <div class='bg green'>
     <%= link_to 'Working', chef_update_path, method: :put %>
 
   </div>
 <% elsif current_user.chef.currently_working != true %>
-  <div class='bg-red'>
+  <div class='bg red'>
     <%= link_to 'Working', chef_update_path, method: :put %>
 
 </div>

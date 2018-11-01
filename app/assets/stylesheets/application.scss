@@ -15,9 +15,20 @@
  //= require foundation_and_overrides
 
  */
-.bg-green {
-    background-color: green;
+.green {
+    a {
+        background-color: green;
+    }
 }
-.bg-red {
-    background-color: red;
+.red {
+   a {
+       background-color: red;
+   }
+}
+.bg {
+    a {
+        color: white;
+        border: 1px solid black;
+        padding: 1px;
+    }
 }
