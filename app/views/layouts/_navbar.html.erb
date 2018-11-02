@@ -15,6 +15,7 @@
         <i class="fi-torso"></i> <span class='footer-text'>Account Settings</span>
       </a>
     </div>
+  
   <% elsif current_user.type_of_user == 'chef' && current_user.chef %> 
         <div class="mobile-bottom-bar">
       <a href= "<%= meals_path %>" class="footer-link">
@@ -30,5 +31,6 @@
         <i class="fi-torso"></i> <span class='footer-text'>Account Settings</span>
       </a>
     </div>
+  
   <% end %> 
 <% end %> 

@@ -1451,7 +1451,8 @@ $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
   display: flex;
   justify-content: center;
   align-items: center;
-
+  position: fixed;
+  bottom: 0;
 
   .footer-link {
     flex: 1 1 auto;
@@ -1480,6 +1481,10 @@ $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
     font-weight: bold;
     font-size: rem-calc(14);
     color: $white;
-  }
+  } 
+}
+
+body {
+  padding-bottom: 61px;
 }
 // Navbar styling end
