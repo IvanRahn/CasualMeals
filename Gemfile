@@ -68,3 +68,6 @@ gem "mini_magick", "~> 4.9"
 gem "autoprefixer-rails", "~> 9.3"
 
 gem "faker", "~> 1.9"
+
+gem "stripe"
+gem "stripe_event"
