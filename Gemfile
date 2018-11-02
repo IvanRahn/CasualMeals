@@ -70,3 +70,5 @@ gem "autoprefixer-rails", "~> 9.3"
 gem "faker", "~> 1.9"
 
 gem "stripe", "~> 3.29"
+
+gem "carrierwave-aws", "~> 1.3"
