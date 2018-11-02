@@ -2,5 +2,9 @@ class MealTransaction < ApplicationRecord
   belongs_to :meal
   belongs_to :order, foreign_key: "transaction_id", class_name: "Transaction"
 
+# def sum_by_transaction(transaction_id)
+# meals = self.where(transaction_id: transaction_id)
+# meals.inject {}
 
+# end
 end

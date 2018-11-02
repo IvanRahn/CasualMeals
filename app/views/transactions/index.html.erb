@@ -2,11 +2,14 @@
 
   <tbody>
     <% @transactions.each do |transaction| %>
+    <div>
       <tr>
         <td><%= transaction.user_id %></td>
         <td><%= transaction.description %></td>
         <td><%= transaction.delivery_address %></td>
+        <td></td>
       </tr>
+      </div>
     <% end %>
   </tbody>
 </table>
