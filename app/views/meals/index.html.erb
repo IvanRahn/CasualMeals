@@ -14,7 +14,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @meals.each do |meal| %>
       <tr>
@@ -25,9 +24,10 @@
         <td><%= image_tag(meal.image_url)%></td>
         <td><%= meal.chef_name %></td>
         <td><%= link_to 'Show', meal %></td>
+        <% if current_user.customer? or (current_user.chef? and @working) %>
         <td><%= link_to 'Buy', new_transaction_path(meal_id: meal.id) %></td>
-
-        <% if current_user.chef? %>
+<% end %>
+        <% if current_user.chef? and @working %>
         <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
         <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
@@ -38,17 +38,18 @@
 
 <br>
 
-    <%= link_to 'New Meal', new_meal_path %>
 
 
-<% if current_user.chef? and current_user.chef.currently_working == true %>
+<% if current_user.chef? and @working %>
   <div class='bg green'>
-    <%= link_to 'Working', chef_update_path, method: :put %>
+      <%= link_to 'New Meal', new_meal_path %>
+
+    <%= link_to 'I am Working', chef_update_path, method: :put %>
 
   </div>
-<% elsif current_user.chef? and current_user.chef.currently_working != true %>
+<% elsif current_user.chef? and !@working %>
   <div class='bg red'>
-    <%= link_to 'Working', chef_update_path, method: :put %>
+    <%= link_to 'I am not Working', chef_update_path, method: :put %>
 
 </div>
 <% end %>

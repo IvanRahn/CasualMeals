@@ -4,6 +4,7 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
+    @working = current_user.chef.currently_working
     @meals =
       case current_user.type_of_user
       when "chef"

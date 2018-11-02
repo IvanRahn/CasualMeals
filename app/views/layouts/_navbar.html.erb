@@ -1,6 +1,6 @@
 
-<% if !current_user.nil?  %>
-  <% if current_user.type_of_user == 'customer' %>
+<% if user_signed_in?  %>
+  <% if current_user.customer? %>
     <div class="mobile-bottom-bar">
       <a href= "<%= meals_path %>" class="footer-link">
         <i class="fi-home"></i> <span class='footer-text'>Home</span>
@@ -15,13 +15,19 @@
         <i class="fi-torso"></i> <span class='footer-text'>Account Settings</span>
       </a>
     </div>
-  <% elsif current_user.type_of_user == 'chef' && current_user.chef %> 
+  <% elsif current_user.chef? && current_user.chef %> 
         <div class="mobile-bottom-bar">
       <a href= "<%= meals_path %>" class="footer-link">
         <i class="fi-home"></i> <span class='footer-text'>Home</span>
       </a>
-      <a href="<%= new_meal_path %>" class="footer-link">
+      <% if current_user.chef.currently_working %>
+      <a href="<%= new_meal_path %>" class="footer-link <%= "not-active" unless current_user.chef.verification%>">
         <i class="fi-upload"></i> <span class='footer-text'>Upload</span>
+        <% else %>
+        <a href="#" class="footer-link">
+        <i class="fi-magnifying-glass"></i> <span class='footer-text'>Search</span>
+        <% end %>
+      </a>
       </a>
       <a href="#" class="footer-link">
         <i class="fi-list-bullet"></i> <span class='footer-text'>Sales History</span>
