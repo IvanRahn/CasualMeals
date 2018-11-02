@@ -10,10 +10,16 @@
   </div>
     
   <div class="field">
-  <%= f.label :currently_working %>
-  <%= f.check_box :currently_working %>
+    <%= f.label :currently_working %>
+    <%= f.check_box :currently_working %>
   </div>
 
+  <div class="field">
+    <%= f.label :verification do %>
+    <p>I comply with the NSW Food Authority practices and standards (required to post meals). </p>
+    <%end%>
+    <%= f.check_box :verification %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Submit" %>
