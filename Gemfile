@@ -60,14 +60,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.5"
 
-gem "foundation-rails", "~> 5.4"
+
 gem "carrierwave", "~> 1.2"
 
 gem "mini_magick", "~> 4.9"
 
-gem "autoprefixer-rails", "~> 9.3"
 
 gem "faker", "~> 1.9"
 
 gem "stripe"
 gem "stripe_event"
+
+gem 'foundation-rails', "~> 6.4"
+gem 'autoprefixer-rails'
