@@ -8,16 +8,21 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
-    session[:meal_id] = params[:meal_id]
+    # session[:meal_id] = params[:meal_id]
+    meal = Meal.find(params[:meal_id])
+    @amount = meal.price * 100
   end
 
   def show
   end
 
   def create
-    process_payment
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
+    # @amount = params[:meal_id]
+
+    process_payment
+
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: "Transaction created." }
@@ -40,7 +45,7 @@ class TransactionsController < ApplicationController
   end
 
   def process_payment
-    @amount = amount_to_be_charged
+    # @amount = amount_to_be_charged
     customer = Stripe::Customer.retrieve(current_user.stripe_id)
     customer.source = params[:stripeToken]
     customer.save
