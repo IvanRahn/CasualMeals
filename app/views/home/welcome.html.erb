@@ -1,24 +1,14 @@
-<div class="row viewport">
-<div class="small-3 small-centered column">
-<h1> welcome </h1>
-
-
-<div class="row">
-<%= link_to 'Register', new_user_registration_path, class:"button"  %>
-<%= link_to 'Login', new_user_session_path, class:"button" %>
-</div>
-</div>
-</div>
-
+<body class="background">
 <div class="grid-x">
-  <div class="cell">full width cell</div>
-  <div class="cell">full width cell</div>
+    <div class="cell text-center">
+        <h1 class="welcome"> Casual Meals </h1>
+    </div>
+
+    
+    <div class="cell button-hover-reveal-wrapper text-center">
+        <label>Sign Up Now</label>
+        <a href="<%= new_user_registration_path %>" class="button-hover-reveal">Register</a>
+        <a href="<%= new_user_session_path %>" class="button-hover-reveal">Login</a>
+    </div>
 </div>
-<div class="grid-x">
-  <div class="cell small-6">6 cells</div>
-  <div class="cell small-6">6 cells</div>
-</div>
-<div class="grid-x">
-  <div class="cell medium-6 large-4">12/6/4 cells</div>
-  <div class="cell medium-6 large-8">12/6/8 cells</div>
-</div>
+</body>
