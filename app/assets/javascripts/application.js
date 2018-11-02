@@ -17,8 +17,6 @@
 //= require foundation
 
 
-$(function(){ $(document).foundation(); });
-
 // closes the panel on click outside
 $(document).mouseup(function (e) {
     var container = $('#contact-panel');
@@ -30,3 +28,4 @@ $(document).mouseup(function (e) {
   });
   
   
+$(function(){ $(document).foundation(); });

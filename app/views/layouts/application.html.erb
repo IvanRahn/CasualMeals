@@ -4,23 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" 
-      href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css"/>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation/foundation.js"></script>
-    <script src="js/foundation/foundation.reveal.js"></script>
   </head>
 
-  <body >
-    <%= link_to "Logout", destroy_user_session_path, method: :delete if user_signed_in? %>
-
+  <body>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete if user_signed_in? %>
     <%= yield %>
-    <%= javascript_include_tag "application" %>
     <%= render 'layouts/navbar' %>
   </body>
 </html>
