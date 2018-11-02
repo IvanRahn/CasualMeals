@@ -9,7 +9,7 @@ class MealsController < ApplicationController
       when "chef"
         Meal.where(chef_id: current_user.chef.id)
       when "customer"
-        Meal.all
+        Meal.where(chef_id: Chef.where(currently_working: true))
       end
   end
 
