@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
-<% if current_user.chef? and current_user.chef.currently_working == true %>
-  <div class='bg green'>
-    <%= link_to 'Finish Working', chef_update_path, method: :put %>
+<% if current_user.chef %>
+<%= form_with model: current_user.chef, url: chef_update_path, method: :put, id:"currently_working_form" do |f| %>
+<div class="switch large">
+ <%= f.check_box :currently_working, class: "switch-input", id: "currently_working", onChange: "this.form.submit()"%>
 
-  </div>
-<% elsif current_user.chef? and current_user.chef.currently_working != true %>
-  <div class='bg red'>
-    <%= link_to 'Start Working', chef_update_path, method: :put %>
+  <!--<input class="switch-input" id="currently_working" type="checkbox" name="currently_working" <%="checked" if current_user.chef.currently_working%>>-->
+  <label class="switch-paddle" for="currently_working">
+    <span class="show-for-sr">Am I working?</span>
+    <span class="switch-active" aria-hidden="true">Working</span>
+    <span class="switch-inactive" aria-hidden="true">Not working</span>
+  </label>
 </div>
+
+  <% end%>
+
 <% end %>
+
 
 <h1>Meals</h1>
     <% if current_user.chef? %>
@@ -53,7 +60,6 @@
     <% end %>
  
 
-<br>
 
 
 
