@@ -1,0 +1,14 @@
+.plus-card {
+  
+  border-radius: 4px;
+  border: 2px dashed lightgray;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.plus-card > svg {
+  fill: currentColor;
+}

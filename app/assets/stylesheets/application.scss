@@ -19,6 +19,8 @@
  
  */
  @import "foundation_and_overrides";
+ @import 'components.scss' ;
+
 .green {
     a {
         background-color: green;
@@ -172,4 +174,3 @@ form {
       }
     }
   }
-  

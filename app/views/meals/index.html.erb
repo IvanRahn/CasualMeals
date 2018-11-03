@@ -1,17 +1,28 @@
 <p id="notice"><%= notice %></p>
 <% if current_user.chef? and current_user.chef.currently_working == true %>
   <div class='bg green'>
-    <%= link_to 'Working', chef_update_path, method: :put %>
+    <%= link_to 'Finish Working', chef_update_path, method: :put %>
 
   </div>
 <% elsif current_user.chef? and current_user.chef.currently_working != true %>
   <div class='bg red'>
-    <%= link_to 'Working', chef_update_path, method: :put %>
-
+    <%= link_to 'Start Working', chef_update_path, method: :put %>
 </div>
+<% end %>
+
 <h1>Meals</h1>
+    <% if current_user.chef? %>
+    <%= link_to new_meal_path do  %>
 
-
+<div class="card plus-card">
+      <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+      </svg>
+      <h4>Add meal</h4>
+    </div>
+<% end %>
+ <%end%>
 
   
     <% @meals.each do |meal| %>
@@ -43,8 +54,5 @@
 
 <br>
 
-    <%= link_to 'New Meal', new_meal_path %>
 
 
-
-<% end %>
