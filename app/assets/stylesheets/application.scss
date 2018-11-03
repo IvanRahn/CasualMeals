@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+//= require foundation_and_overrides
+
  //= require foundation_and_overrides
 
  
@@ -50,3 +52,132 @@
     color: black;
   }
 
+// Navbar styling Start
+$mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
+
+.mobile-bottom-bar {
+  width: 100%;
+  height: 3.778rem;
+  background: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+
+
+  .footer-link {
+    flex: 1 1 auto;
+    text-align: center;
+    color: $mobile-bottom-bar-primary-dark;
+    text-transform: uppercase;
+    font-size: rem-calc(13);
+    font-weight: bold;
+    padding: 0.907rem 1rem;
+
+    i.fa {
+      opacity: 0.8;
+      margin-right: rem-calc(10);
+      font-size: rem-calc(24);
+      vertical-align: middle;
+    }
+
+    &:focus,
+    &:active {
+      color: $mobile-bottom-bar-primary-dark;
+    }
+  }
+  .footer-text {
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+    font-size: rem-calc(14);
+    color: $white;
+  }
+}
+// Navbar Styling End
+
+// Home page sign up hover
+body.background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);
+    background-repeat: no-repeat;
+}
+
+.welcome {
+    color: #FFF;
+    padding-top: 140px;
+    padding-bottom: 5px;
+}
+
+.button-hover-reveal-wrapper {
+    overflow: hidden;
+    border: 2px solid $primary-color;
+    border-radius: 5000px;
+    text-align: center;
+    width: 100%;
+    background: $white;
+    display: flex;
+    justify-content: center;
+  
+    &:hover {
+      border: none;
+      background-color: $primary-color;
+      transition: background-color 0.5s ease;
+  
+      .button-hover-reveal {
+        display: block;
+        font-size: 16px;
+        padding: 22px;
+  
+        &:hover {
+          transition: background-color 0.5s ease;
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+  
+      label {
+        display: none;
+      }
+    }
+  
+    .button-hover-reveal {
+      display: none;
+      color: $white;
+      width: 50%;
+      z-index: 1;
+    }
+  
+    label {
+      padding: 16px;
+      color: $primary-color;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+//Home Page Signup hover end
+
+// Account Registration/Edit form page
+form {
+    .form-icons {
+      text-align: center;
+  
+      h4 {
+        margin-bottom: 1rem;
+      }
+  
+      .input-group-label {
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+  
+      .input-group-field {
+        border-color: $primary-color;
+      }
+  
+      .fa {
+        color: white;
+        width: 1rem; // makes the width of icon labels equal
+      }
+    }
+  }
+  
