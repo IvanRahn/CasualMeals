@@ -1,46 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Meals</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Cuisine</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Delivery time</th>
-      <th>Image</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @meals.each do |meal| %>
-      <tr>
-        <td><%= meal.cuisine %></td>
-        <td><%= meal.description %></td>
-        <td><%= meal.price %></td>
-        <td><%= meal.delivery_time %></td>
-        <td><%= image_tag(meal.image_url)%></td>
-        <td><%= meal.chef_name %></td>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Buy', new_transaction_path(meal_id: meal.id) %></td>
-
-        <% if current_user.chef? %>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-    <%= link_to 'New Meal', new_meal_path %>
-
-
 <% if current_user.chef? and current_user.chef.currently_working == true %>
   <div class='bg green'>
     <%= link_to 'Working', chef_update_path, method: :put %>
@@ -51,4 +9,42 @@
     <%= link_to 'Working', chef_update_path, method: :put %>
 
 </div>
+<h1>Meals</h1>
+
+
+
+  
+    <% @meals.each do |meal| %>
+      <div class="card" style="width:200px">
+        <%= image_tag(meal.image_url)%>
+        <div class="card-divider"> <h5><%= meal.name %></h5>
+        
+        </div>
+
+        <div class="card-section">
+        
+        <p>Description: <%= meal.description %></p>
+        <p>Price: $<%= meal.price %></p>
+        <p>Delivery time: <%= meal.delivery_time %></p>
+        <p>Chef: <%= meal.chef_name %></p>
+
+        </div>
+        <td><%= link_to 'Show', meal %></td>
+        <td><%= link_to 'Buy', new_transaction_path(meal_id: meal.id) %></td>
+
+        <% if current_user.chef? %>
+        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
+        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+        </div>
+      </div>
+    <% end %>
+ 
+
+<br>
+
+    <%= link_to 'New Meal', new_meal_path %>
+
+
+
 <% end %>

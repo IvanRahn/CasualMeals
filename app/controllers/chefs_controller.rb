@@ -41,13 +41,12 @@ class ChefsController < ApplicationController
 
   def working
     current_user.chef.toggle(:currently_working).save
-    redirect_to '/meals'
+    redirect_to "/meals"
   end
 
   # PATCH/PUT /chefs/1
   # PATCH/PUT /chefs/1.json
   def update
-    
     respond_to do |format|
       if @chef.update(chef_params)
         format.html { redirect_to @chef, notice: "Chef was successfully updated." }
@@ -65,7 +64,6 @@ class ChefsController < ApplicationController
       format.html { redirect_to chefs_url, notice: "Chef was successfully destroyed." }
     end
   end
-
 
   private
 
