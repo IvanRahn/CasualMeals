@@ -64,7 +64,6 @@ class MealsController < ApplicationController
     @meal.destroy
     respond_to do |format|
       format.html { redirect_to meals_url, notice: "Meal was successfully destroyed." }
-      format.html { redirect_to meals_url, notice: "Meal was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -78,6 +77,6 @@ class MealsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def meal_params
-    params.require(:meal).permit(:cuisine, :description, :price, :delivery_time, :image, :user_id)
+    params.require(:meal).permit(:name, :cuisine, :description, :price, :delivery_time, :image, :user_id)
   end
 end
