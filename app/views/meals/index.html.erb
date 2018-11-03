@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% if current_user.chef %>
-<%= form_with model: current_user.chef, url: chef_update_path, id:"currently_working_form" do |f| %>
+<%= form_with model: current_user.chef, url: chef_update_path, method: :put, id:"currently_working_form" do |f| %>
 <div class="switch large">
  <%= f.check_box :currently_working, class: "switch-input", id: "currently_working", onChange: "this.form.submit()"%>
 
