@@ -46,9 +46,19 @@
   //  border: 1px solid red;
  }
 
+<<<<<<< HEAD
 body {
     padding-bottom: 65px;
 }
+=======
+
+ .not-active {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+  }
+>>>>>>> 65514cedc287c27de6b0f478db5c649151760fee
 
 // Navbar styling Start
 $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);

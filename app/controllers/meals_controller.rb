@@ -5,12 +5,16 @@ class MealsController < ApplicationController
   # GET /meals.json
   def index
     @meals =
-      case current_user.type_of_user
-      when "chef"
-        Meal.where(chef_id: current_user.chef.id)
-      when "customer"
+      if current_user.customer? or params[:show_all]
         Meal.where(chef_id: Chef.where(currently_working: true))
+      elsif current_user.chef?
+        current_user.chef.meals
       end
+  end
+
+  def show_all
+    @meals = Meal.all
+    render "index"
   end
 
   # GET /meals/1
@@ -76,6 +80,6 @@ class MealsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def meal_params
-    params.require(:meal).permit(:name, :cuisine, :description, :price, :delivery_time, :image, :user_id)
+    params.require(:meal).permit(:name, :show_all, :cuisine, :description, :price, :delivery_time, :image, :user_id)
   end
 end
