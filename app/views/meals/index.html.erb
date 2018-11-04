@@ -1,23 +1,20 @@
 <p id="notice"><%= notice %></p>
-<% if current_user.chef %>
-<%= form_with model: current_user.chef, url: chef_update_path, method: :put, id:"currently_working_form" do |f| %>
+<% if current_user.chef? %>
+<%= form_with model: current_user.chef, url: chef_update_path, method: :put do |f| %>
 <div class="switch large">
  <%= f.check_box :currently_working, class: "switch-input", id: "currently_working", onChange: "this.form.submit()"%>
-
-  <!--<input class="switch-input" id="currently_working" type="checkbox" name="currently_working" <%="checked" if current_user.chef.currently_working%>>-->
   <label class="switch-paddle" for="currently_working">
     <span class="show-for-sr">Am I working?</span>
     <span class="switch-active" aria-hidden="true">Working</span>
     <span class="switch-inactive" aria-hidden="true">Not working</span>
   </label>
 </div>
-
   <% end%>
 
-<% end %>
+<%end%>
 
 
-<h1>Meals</h1>
+<h1>My Meals</h1>
     <% if current_user.chef? %>
     <%= link_to new_meal_path do  %>
 
@@ -48,9 +45,10 @@
 
         </div>
         <td><%= link_to 'Show', meal %></td>
+        <% if current_user.customer? or (current_user.chef? and @working) %>
         <td><%= link_to 'Buy', new_transaction_path(meal_id: meal.id) %></td>
-
-        <% if current_user.chef? %>
+<% end %>
+        <% if current_user.chef? and @working %>
         <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
         <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
@@ -58,7 +56,6 @@
       </div>
     <% end %>
  
-
 
 
 

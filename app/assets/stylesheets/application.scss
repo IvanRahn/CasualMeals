@@ -46,6 +46,14 @@
   //  border: 1px solid red;
  }
 
+
+ .not-active {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+  }
+
 // Navbar styling Start
 $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
 

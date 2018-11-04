@@ -1,3 +1,5 @@
 <h1> Your Purchase Order </h1>
 
- Your total is: <%= %>
+Thanks for buying <%= @transaction.meals.first.description %>
+from <%= @transaction.meals.first.chef.user.first_name %>
+ Your total is: <%= @transaction.meals.first.price %>
