@@ -5,16 +5,17 @@ class MealsController < ApplicationController
   # GET /meals.json
   def index
     @meals =
-      if current_user.chef? and params[:show] or current_user.customer?
+      if current_user.customer? or params[:show_all]
         Meal.where(chef_id: Chef.where(currently_working: true))
-      elsif current_user.chef? and !params[:show]
+      elsif current_user.chef?
         current_user.chef.meals
       end
   end
 
-  # def show_all
-  #   redirect_to meals_path(show: false)
-  # end
+  def show_all
+    @meals = Meal.all
+    render "index"
+  end
 
   # GET /meals/1
   # GET /meals/1.json

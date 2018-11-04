@@ -16,6 +16,14 @@
 
 <h1>My Meals</h1>
     <% if current_user.chef? %>
+    <% if current_page?(meals_path)%>
+    <%= link_to "All Meals", show_all_path%>
+    <% end %>
+        <% if current_page?(show_all_path)%>
+
+        <%= link_to "My Meals", meals_path%>
+
+    <% end%>
     <%= link_to new_meal_path do  %>
 
 <div class="card plus-card">

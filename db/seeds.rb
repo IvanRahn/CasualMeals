@@ -19,7 +19,7 @@ customer.save
 chef = User.new(
   email: "chef@gmail.com",
   password: "password",
-  type_of_user: 1,
+  type_of_user: "chef",
   first_name: "chef",
 )
 chef.save
@@ -31,12 +31,13 @@ chef.save
     last_name: Faker::Name.last_name,
     password: "123123",
     phone_number: 041234567,
-    type_of_user: 0,
+    type_of_user: 1,
     stripe_id: Stripe::Customer.create(),
   )
   customer.save
 end
-User.where(type_of_user: 0).each do |i|
+
+User.where(type_of_user: 1 ).each do |i|
   chef = Chef.new(
     delivery_range: "5km",
     verification: true,
@@ -45,6 +46,7 @@ User.where(type_of_user: 0).each do |i|
   )
   chef.save
 end
+
 Chef.all.each do |i|
   10.times do
     meal = Meal.new(
