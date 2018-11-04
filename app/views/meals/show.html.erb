@@ -29,6 +29,8 @@
   <strong>User:</strong>
   <%= @meal.chef.user.first_name %>
 </p>
-
+<% if current_user.chef? %>
 <%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'destroy', @meal, method: :delete %>
 <%= link_to 'Back', meals_path %>
+<% end%>
