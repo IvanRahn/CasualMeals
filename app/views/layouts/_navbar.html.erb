@@ -4,6 +4,7 @@
       <a href= "<%= meals_path %>" class="footer-link">
         <i class="fi-home"></i> <span class='footer-text'>Home</span>
       </a>
+<<<<<<< HEAD
 
 
 
@@ -40,10 +41,17 @@
 -->
       <% if current_user.customer? %>
       <a href="#" class="footer-link">
+=======
+      <a href="#" class="footer-link">
+        <i class="fi-magnifying-glass"></i> <span class='footer-text'>Search</span>
+      </a>
+      <% if current_user.customer?%>
+      <a href= <%= transactions_path %> class="footer-link">
+>>>>>>> origin/transactionviewjames
         <i class="fi-list-bullet"></i> <span class='footer-text'>Order History</span>
       </a>
       <% else %>
-       <a href="#" class="footer-link">
+       <a href= <%= transactions_path%>  class="footer-link">
         <i class="fi-list-bullet"></i> <span class='footer-text'>Sales History</span>
       </a>
       <% end %>

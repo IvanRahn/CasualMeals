@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_013242) do
+ActiveRecord::Schema.define(version: 2018_11_05_030952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_013242) do
     t.bigint "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sale_price"
     t.index ["meal_id"], name: "index_meal_transactions_on_meal_id"
     t.index ["transaction_id"], name: "index_meal_transactions_on_transaction_id"
   end

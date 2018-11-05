@@ -2,6 +2,7 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   #check that only chef who owns the meal can edit or delete
   before_action :check_chef, only: [:edit, :update, :destroy, :new, :create]
+  
   # GET /meals
   # GET /meals.json
 
