@@ -52,7 +52,7 @@ Chef.all.each do |i|
     meal = Meal.new(
       name: Faker::Food.dish,
       description: Faker::Food.description,
-      cuisine: Faker::Nation.nationality,
+      cuisine: ['chinese','french','japanese','vietnamese','turkish','american','others'].sample,#Faker::Nation.nationality,
       price: Faker::Number.number(2),
       delivery_time: Faker::Number.number(2),
       chef_id: i.id,

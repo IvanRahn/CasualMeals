@@ -42,28 +42,36 @@
 <% end %>
  <%end%>
 
+  <!-- Filter Buttons Start -->
+<section class="filter-simple">
+    <div class="button-group round">
+      <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
+      <button class="button hollow filter-simple-button" data-filter="chinese">Chinese</button>
+      <button class="button hollow filter-simple-button" data-filter="french">French</button>
+      <button class="button hollow filter-simple-button" data-filter="japanese">Japanese</button>
+      <button class="button hollow filter-simple-button" data-filter="vietnamese">Vietnamese</button>
+      <button class="button hollow filter-simple-button" data-filter="turkish">Turkish</button>
+      <button class="button hollow filter-simple-button" data-filter="american">American</button>
+      <button class="button hollow filter-simple-button" data-filter="others">Others</button>
+    </div>
   
-    <% @meals.each do |meal| %>
-      <%= link_to meal do %>
 
-      <div class="card" style="width:200px">
-        <%= image_tag(meal.image_url)%>
-        <div class="card-divider"> <h5><%= meal.name %></h5>
-        
+
+  <% @meals.each do |meal| %>
+    <div class="row small-up-2 medium-up-3 large-up-4 card filter-simple-item <%= meal.cuisine %>">
+        <div class="column column-block  ">
+          <%= link_to meal, value:"meal.cusine" do %>
+          <%# <%= image_tag(meal.image_url)%>
+          <h5><%= meal.name %></h5>
+          <p>Cuisine: <%= meal.cuisine %>
+          <p>Description: <%= meal.description %></p>
+          <p>Price: $<%= meal.price %></p>
+          <p>Delivery time: <%= meal.delivery_time %></p>
+          <p>Chef: <%= meal.chef_name %></p>
+          <% end %>
         </div>
+    </div>
 
-        <div class="card-section">
-        
-        <p>Description: <%= meal.description %></p>
-        <p>Price: $<%= meal.price %></p>
-        <p>Delivery time: <%= meal.delivery_time %></p>
-        <p>Chef: <%= meal.chef_name %></p>
+  <% end %>
 
-        </div>
-        <% end %>
-        </div>
-    <% end %>
- 
-
-
-
+</section>

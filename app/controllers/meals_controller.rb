@@ -5,7 +5,7 @@ class MealsController < ApplicationController
   # GET /meals.json
   def index
     @meals =
-      if current_user.customer?
+      if current_user.customer? or params[:show_all]
         Meal.includes(:chef).where(chef_id: Chef.where(currently_working: true))
       elsif current_user.chef?
         current_user.chef.meals
@@ -15,7 +15,7 @@ class MealsController < ApplicationController
 
   def search
     if !params[:search].nil?
-      @meals = Meal.fuzzy_search(name: "#{params[:search]}")
+      @meals = Meal.includes(:chef).where(chef_id: Chef.where(currently_working: true)).fuzzy_search(name: "#{params[:search]}")
     end
   end
 

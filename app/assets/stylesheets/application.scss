@@ -46,6 +46,9 @@
   //  border: 1px solid red;
  }
 
+body {
+    padding-bottom: 65px;
+
 
  .not-active {
     pointer-events: none;
@@ -53,7 +56,7 @@
     text-decoration: none;
     color: black;
   }
-
+}
 // Navbar styling Start
 $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
 
@@ -182,3 +185,38 @@ form {
       }
     }
   }
+
+//   Filter Buttons Start
+
+.filter-simple {
+    .button-group {
+       justify-content: center; // center the button group
+    }
+  
+    .filter-simple-button.hollow {
+      &.is-active,
+      &:focus,
+      &:active {
+        background-color: $primary-color;
+        color: $white;
+      }
+    }
+  }
+  
+  // optional styles to round the button group edges
+  .button-group.round {
+    :first-child {
+      border-radius: 5000px 0 0 5000px;
+    }
+  
+    :last-child {
+      border-radius: 0 5000px 5000px 0;
+    }
+  }
+  
+  // class that spaces blocks vertically - will be built into Foundation 6.4
+  .column-block {
+    margin-bottom: 30px;
+  }
+  
+// Filter Buttons End  

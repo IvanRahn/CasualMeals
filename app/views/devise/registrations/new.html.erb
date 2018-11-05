@@ -61,7 +61,7 @@
       <span class="input-group-label">
         <i class="fa fa-users"></i>
       </span>
-        <%= f.select :type_of_user, [["I am a chef", 'chef'],["I am a customer", 'customer']], class: 'input-group-field' %>
+        <%= f.select(:type_of_user, [["I am a chef", 'chef'],["I am a customer", 'customer']],{}, {class: 'input-group-field'}) %>
     </div>
 
     <div class="actions">
