@@ -1,25 +1,8 @@
 <p id="notice"><%= notice %></p>
 <% if current_user.chef? %>
-    <%=render 'switch'%>
-<% end%>
-
-<%= render 'search'%>
-
-<% if current_user.chef? %>
     <%= render 'all_meals'%>
-    <%= link_to new_meal_path do  %>
-
-      <div class="card plus-card">
-            <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
-            <h4>Add meal</h4>
-          </div>
-    <% end %>
-<%end%>
-
-  <!-- Filter Buttons Start -->
+<% end%>
+<!-- Filter Buttons Start -->
 <section class="filter-simple">
     <div class="button-group round">
       <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
@@ -31,6 +14,20 @@
       <button class="button hollow filter-simple-button" data-filter="american">American</button>
       <button class="button hollow filter-simple-button" data-filter="others">Others</button>
     </div>
+
+<% if current_user.chef? %>
+<div class="row small-up-2 medium-up-3 large-up-4">
+          <%= link_to new_meal_path, class:"card plus-card  column column-block" do %>
+            <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+            <h4>Add meal</h4>
+    <% end %>
+</div>
+<%end%>
+
+  
   
 
 

@@ -11,7 +11,6 @@ class ChefsController < ApplicationController
   end
 
   def show
-    
   end
 
   # GET /chefs/new
@@ -42,7 +41,6 @@ class ChefsController < ApplicationController
 
   def working
     current_user.chef.toggle(:currently_working).save
-    redirect_to "/meals"
   end
 
   # PATCH/PUT /chefs/1

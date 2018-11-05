@@ -1,4 +1,7 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% if current_user.chef?%>
+    <%=render 'meals/switch'%>
+    <%end%>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <div class="form-icons">

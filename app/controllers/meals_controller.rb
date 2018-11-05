@@ -4,7 +4,7 @@ class MealsController < ApplicationController
   before_action :check_chef, only: [:edit, :update, :destroy, :new, :create]
   # GET /meals
   # GET /meals.json
-  
+
   def index
     @meals =
       if current_user.customer? or params[:show_all]
@@ -18,8 +18,8 @@ class MealsController < ApplicationController
   def search
     if !params[:search].nil?
       @meals = Meal.includes(:chef)
-                    .where(chef_id: Chef.where(currently_working: true))
-                    .fuzzy_search(name: "#{params[:search]}")
+              .where(chef_id: Chef.where(currently_working: true))
+              .fuzzy_search(name: "#{params[:search]}")
     end
   end
 

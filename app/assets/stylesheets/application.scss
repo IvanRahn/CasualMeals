@@ -72,6 +72,7 @@ $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
 
 
   .footer-link {
+    position: relative;
     flex: 1 1 auto;
     text-align: center;
     color: $mobile-bottom-bar-primary-dark;
@@ -220,3 +221,42 @@ form {
   }
   
 // Filter Buttons End  
+
+.contact-panel-button {
+  display:block;
+  // width: 160px;
+  height: 44px;
+  // width: 100%;
+  margin: 0 auto;
+  position: relative;
+  // top: -40px;
+  // right: 30px;
+  transition: background 0.25s ease-in-out;
+  &:after {
+    content: "⥣";
+    margin-left: 5px;
+    color: white;
+  }
+}
+.is-active .contact-panel-button:after {
+  content: "⥥";
+}
+
+.contact-panel {
+  position: fixed;
+  bottom: -56px;
+  z-index: 1;
+  transition: bottom 0.5s ease-in-out;
+  &:active,
+  &:hover,
+  &:focus,
+  .is-active {
+    bottom: 0;
+  }
+  input {
+    border-radius: 10px;
+  }
+}
+.is-active {
+  bottom: 0;
+}
