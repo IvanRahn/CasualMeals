@@ -7,4 +7,8 @@ class MealTransaction < ApplicationRecord
 # meals.inject {}
 
 # end
+
+  def time
+    self.created_at.to_date
+  end
 end

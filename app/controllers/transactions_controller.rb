@@ -5,13 +5,12 @@ class TransactionsController < ApplicationController
   # before_action :add
 
   def index
-  
     @transactions = Transaction.where(user_id: current_user.id)
 
     if current_user.chef?
       @meals = Meal.where(chef_id: current_user.chef.id)
       @meal_transactions = MealTransaction.where(meal_id: @meals.ids)
-      @description = Transaction.find(@meal_transactions.transaction_id)
+      
       @total_revenue = @meal_transactions.sum(:sale_price)
       
     end

@@ -1,8 +1,10 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   before_action :check_chef, only: [:edit, :update, :destroy, :new, :create]
+  
   # GET /meals
   # GET /meals.json
+
   def index
     @meals =
       if current_user.customer? or params[:show_all]
