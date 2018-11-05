@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
       @meals = Meal.where(chef_id: current_user.chef.id)
       @meal_transactions = MealTransaction.where(meal_id: @meals.ids)
       
-      @total_revenue = @meal_transactions.sum(:sale_price)
+      @total_sales = @meal_transactions.sum(:sale_price) / 100
       
     end
 

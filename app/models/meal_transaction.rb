@@ -9,6 +9,11 @@ class MealTransaction < ApplicationRecord
 # end
 
   def time
-    self.created_at.to_date
+    # self.created_at.to_date
+    self.created_at.strftime("%A, %d %B %Y")
+  end
+
+  def formatstripe
+    self.sale_price.to_i / 100
   end
 end
