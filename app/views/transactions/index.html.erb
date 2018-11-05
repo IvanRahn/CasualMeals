@@ -1,3 +1,6 @@
+
+<% if current_user.customer? %>
+
 <h1> Order History </h1>
 
   <table>
@@ -10,7 +13,6 @@
         <th> Price </th>
       </tr>
       </thead>
-
 
   <tbody>
     <% @transactions.each do |transaction| %>
@@ -27,18 +29,33 @@
   </tbody>
   </table>
 
-<% if current_user.chef? %>
-  <h2> Sales </h2>
+<% else current_user.chef? %>
+  <h1> Sales </h2>
+
+    <table>
+    <thead>
+      <tr>
+        <th> Id </th>
+        <th> Description </th>
+        <th> Cuisine Name </th>
+        <th> Revenue </th>
+      </tr>
+      </thead>
+
     <% @meal_transactions.each do |transaction| %>
     <div>
       <tr>
-        <td><%= transaction.id%></td>
-        <td><%= transaction.sale_price%></td>
+        <td><%= transaction.id %></td>
+        <td><%= transaction.description %></td>
+
+         <%# Transaction.find(transaction.transaction_id).description %>
+        <td><%= transaction.sale_price %></td>
       </tr>
       </div>  
     <% end %>
-   <h2> Total Sales </h2>
-   <%= @total_sales %>
+   <h2> Total Revenue </h2>
+   <%= @total_revenue %>
+
 <% end %>
 
 </table>

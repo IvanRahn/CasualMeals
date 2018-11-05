@@ -11,7 +11,9 @@ class TransactionsController < ApplicationController
     if current_user.chef?
       @meals = Meal.where(chef_id: current_user.chef.id)
       @meal_transactions = MealTransaction.where(meal_id: @meals.ids)
-      @total_sales = @meal_transactions.sum(:sale_price)
+      @description = Transaction.find(@meal_transactions.transaction_id)
+      @total_revenue = @meal_transactions.sum(:sale_price)
+      
     end
 
   end
