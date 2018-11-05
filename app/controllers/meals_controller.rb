@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_chef, only: [:edit, :update, :destroy, :new, :create]
   # GET /meals
   # GET /meals.json
   def index
@@ -72,6 +72,12 @@ class MealsController < ApplicationController
   end
 
   private
+
+  def check_chef
+    if current_user.customer? or current_user.chef.id != @meal.chef_id
+      redirect_to meals_path
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meal
