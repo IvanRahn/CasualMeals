@@ -1,0 +1,10 @@
+<%= form_with model: current_user.chef, url: chef_update_path, method: :put do |f| %>
+<div class="switch large">
+ <%= f.check_box :currently_working, class: "switch-input", id: "currently_working", onChange: "this.form.submit()"%>
+  <label class="switch-paddle" for="currently_working">
+    <span class="show-for-sr">Am I working?</span>
+    <span class="switch-active" aria-hidden="true">Working</span>
+    <span class="switch-inactive" aria-hidden="true">Not working</span>
+  </label>
+</div>
+<%end%>
