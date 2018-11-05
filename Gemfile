@@ -76,3 +76,5 @@ gem "stripe_event"
 
 gem 'foundation-rails', "~> 6.4"
 gem 'autoprefixer-rails'
+
+gem "textacular", "~> 5.1"

@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   # before_action :add
 
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.where(user_id: current_user.id)
   end
 
   def new

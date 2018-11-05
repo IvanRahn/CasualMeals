@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post "/process_payment" => "transactions#process_payment", as: "payment"
   put "/meals" => "chefs#working", as: "chef_update"
   get "/allmeals" => "meals#show_all", as: "show_all"
+  get "/meals" => "meals#search", as: "search"
 end

@@ -7,7 +7,7 @@
         <td><%= transaction.user_id %></td>
         <td><%= transaction.description %></td>
         <td><%= transaction.delivery_address %></td>
-        <td></td>
+        <td>price: <%= MealTransaction.where(transaction_id: transaction.id).first.meal.price %></td>
       </tr>
       </div>
     <% end %>
