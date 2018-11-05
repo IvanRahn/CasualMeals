@@ -5,7 +5,6 @@
     <table>
       <thead>
         <tr>
-          <th> Id </th>
           <th> Description </th>
           <th> Delivery Address </th>
           <th> Cuisine Name </th>
@@ -17,8 +16,6 @@
       <tbody>
         <% @transactions.each do |transaction| %>
         <div>
-          <tr>
-            <td><%= transaction.id %></td>
             <td><%= transaction.description %></td>
             <td><%= transaction.delivery_address %></td>
             <td><%= transaction.meals.first.cuisine %></td>
@@ -31,12 +28,12 @@
     </table>
 
   <% elsif current_user.chef? %>
-    <h1> Sales </h2>
+    <h1> Sales History </h2>
 
     <table>
       <thead>
         <tr>
-          <th> Id </th>
+          <th> Cuisine Name </th>
           <th> Description </th>
           <th> Price </th>
           <th> Sale Date </th>
@@ -46,16 +43,15 @@
       <% @meal_transactions.each do |meal_transaction| %>
       <div>
         <tr>
-          <td><%= meal_transaction.id %></td>
+          <td> <%= meal_transaction.meal.cuisine%>
           <td> <%= meal_transaction.order.description%>
           <td><%= meal_transaction.sale_price %></td>
           <td><%= meal_transaction.time %></td>
         </tr>
       </div>  
       <% end %>
+    </table>
+      <h3> Total Sales </h3>
+      $<%= @total_sales %>
+  <% end%>
 
-      <h2> Total Revenue </h2>
-      <%= @total_revenue %>
-    <% end%>
-
-  </table>
