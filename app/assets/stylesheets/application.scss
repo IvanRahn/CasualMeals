@@ -260,3 +260,20 @@ form {
 .is-active {
   bottom: 0;
 }
+
+h1 {
+  display: block;
+  text-align: center;
+}
+
+
+.search-container{
+  position: relative;
+  input[type=submit] {
+    position: absolute;
+    right: 0px;
+    top: 1px;
+    height: 38px;
+  }
+  
+}

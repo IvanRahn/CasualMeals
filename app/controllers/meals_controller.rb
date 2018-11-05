@@ -18,13 +18,14 @@ class MealsController < ApplicationController
   def search
     if !params[:search].nil?
       @meals = Meal.includes(:chef)
-              .where(chef_id: Chef.where(currently_working: true))
-              .fuzzy_search(name: "#{params[:search]}")
+        .where(chef_id: Chef.where(currently_working: true))
+        .fuzzy_search(name: "#{params[:search]}")
     end
   end
 
   def show_all
-    @meals = Meal.includes(:chef)
+    @meals = Meal.includes(:chef).where(chef_id: Chef.where(currently_working: true))
+
     render "index"
   end
 

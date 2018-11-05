@@ -1,5 +1,4 @@
     <% if current_page?(meals_path)%>
-    <div style="text-align: center">
     <h1>My Meals</h1>
     <%= link_to "All Meals", show_all_path, onClick:"location.reload()"%>
     <% end %>
@@ -8,4 +7,3 @@
 
         <%= link_to "My Meals", meals_path, onClick:"location.reload()"%>
     <% end%>
-</div>
