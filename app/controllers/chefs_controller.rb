@@ -11,6 +11,7 @@ class ChefsController < ApplicationController
   end
 
   def show
+    
   end
 
   # GET /chefs/new

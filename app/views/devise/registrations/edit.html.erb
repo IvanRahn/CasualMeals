@@ -75,8 +75,17 @@
   <div>
 <% end %>
 
+<%# chef update details %>
+<% if current_user.chef? %>
+  
+  <%= link_to edit_chef_path(id:current_user.chef.id) do %>
+    <h2> Update Chef Details </h2>
+  <% end %>
+<% end %>
+
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+

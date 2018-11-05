@@ -1,30 +1,5 @@
-<h1> Casual Meals </h1>
-<h2> Chef Sign up <h2>
+<h1>New chef</h1>
 
-<%= form_with(model: @chef, local: true) do |f| %>
+<%= render 'form', chef: @chef %>
 
-  <div class="field">
-    <%= f.label :delivery_range %><br />
-    <%= f.select :delivery_range,
-    ['5km', '10km', '20km', '30km', '50km'  ] %>
-  </div>
-    
-  <div class="field">
-    <%= f.label :currently_working %>
-    <%= f.check_box :currently_working %>
-  </div>
-
-  <div class="field">
-    <%= f.label :verification do %>
-    <p>I comply with the NSW Food Authority practices and standards (required to post meals). </p>
-    <%end%>
-    <%= f.check_box :verification %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
-
-<% end %>
-
-  
+<%= link_to 'Back', chefs_path %>
