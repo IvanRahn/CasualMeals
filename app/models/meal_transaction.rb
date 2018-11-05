@@ -9,6 +9,7 @@ class MealTransaction < ApplicationRecord
 # end
 
   def time
-    self.created_at.to_date
+    # self.created_at.to_date
+    self.created_at.strftime("%A, %d %B %Y")
   end
 end
