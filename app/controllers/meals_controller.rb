@@ -74,7 +74,7 @@ class MealsController < ApplicationController
   private
 
   def check_chef
-    if current_user.customer? or current_user.chef.id != @meal.chef_id
+    if current_user.customer? or (!@meal.nil? and current_user.chef.id != @meal.chef_id)
       redirect_to meals_path
     end
   end
