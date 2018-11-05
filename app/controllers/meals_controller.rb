@@ -6,10 +6,11 @@ class MealsController < ApplicationController
   def index
     @meals =
       if current_user.customer? or params[:show_all]
-        Meal.where(chef_id: Chef.where(currently_working: true))
+        Meal.includes(:chef).where(chef_id: Chef.where(currently_working: true))
       elsif current_user.chef?
         current_user.chef.meals
       end
+      @cuisine = Meal.cuisine_type
   end
 
   def show_all

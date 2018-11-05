@@ -8,4 +8,8 @@ class Meal < ApplicationRecord
     user = self.chef.user 
     "#{user.first_name} #{user.last_name}"  
   end
+
+  def self.cuisine_type
+    self.distinct.pluck(:cuisine)
+  end
 end
