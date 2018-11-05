@@ -6,7 +6,7 @@ class Transaction < ApplicationRecord
   def time
     self.created_at.to_date
   end
-  
+
   def total_sales
     @total = MealTransaction.sum("sale_price")
   end
