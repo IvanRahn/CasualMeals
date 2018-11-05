@@ -16,11 +16,11 @@
       <tbody>
         <% @transactions.each do |transaction| %>
         <div>
-            <td><%= transaction.description %></td>
-            <td><%= transaction.delivery_address %></td>
-            <td><%= transaction.meals.first.cuisine %></td>
-            <td>$<%= transaction.meal_transactions.first.sale_price %></td>
-            <td><%= transaction.time   %></td>
+            <td> <%= transaction.description %></td>
+            <td> <%= transaction.delivery_address %></td>
+            <td> <%= transaction.meals.first.cuisine %></td>
+            <td>$<%= transaction.meal_transactions.first.formatstripe %></td>
+            <td> <%= transaction.time   %></td>
           </tr>
           </div>
         <% end %>
@@ -45,8 +45,8 @@
         <tr>
           <td> <%= meal_transaction.meal.cuisine%>
           <td> <%= meal_transaction.order.description%>
-          <td><%= meal_transaction.sale_price %></td>
-          <td><%= meal_transaction.time %></td>
+          <td>$<%= meal_transaction.formatstripe %></td>
+          <td> <%= meal_transaction.time %></td>
         </tr>
       </div>  
       <% end %>

@@ -11,4 +11,5 @@ class Transaction < ApplicationRecord
   def total_sales
     @total = MealTransaction.sum("sale_price")
   end
+
 end
