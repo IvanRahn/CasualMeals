@@ -4,12 +4,6 @@
       <a href= "<%= meals_path %>" class="footer-link">
         <i class="fi-home"></i> <span class='footer-text'>Home</span>
       </a>
-
-
-
-      
-
-     
       <% if current_user.customer?%>
       <a href= <%= transactions_path %> class="footer-link">
         <i class="fi-list-bullet"></i> <span class='footer-text'>Order History</span>

@@ -17,15 +17,17 @@ class MealsController < ApplicationController
   end
 
   def search
+    query = params[:search].to_s
     if !params[:search].nil?
-      @meals = Meal.includes(:chef, chef: :user)
+      @meals = Meal.includes(:chef, chef: :user).references(:users)
         .where(chef_id: Chef.where(currently_working: true))
-        .fuzzy_search(name: "#{params[:search]}")
+        .fuzzy_search({name: query, cuisine: query, users:{first_name: query, last_name: query}}, false)
     end
   end
 
   def show_all
     @meals = Meal.includes(:chef, chef: :user).where(chef_id: Chef.where(currently_working: true))
+    search
 
     render "index"
   end

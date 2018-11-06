@@ -272,45 +272,6 @@ form {
 // Filter Buttons End  
 
 
-.contact-panel-button {
-  display:block;
-  // width: 160px;
-  height: 44px;
-  // width: 100%;
-  margin: 0 auto;
-  position: relative;
-  // top: -40px;
-  // right: 30px;
-  transition: background 0.25s ease-in-out;
-  &:after {
-    content: "⥣";
-    margin-left: 5px;
-    color: white;
-  }
-}
-.is-active .contact-panel-button:after {
-  content: "⥥";
-}
-
-.contact-panel {
-  position: fixed;
-  bottom: -56px;
-  z-index: 1;
-  transition: bottom 0.5s ease-in-out;
-  &:active,
-  &:hover,
-  &:focus,
-  .is-active {
-    bottom: 0;
-  }
-  input {
-    border-radius: 10px;
-  }
-}
-.is-active {
-  bottom: 0;
-}
-
 h1 {
   display: block;
   text-align: center;
@@ -319,20 +280,19 @@ h1 {
 
 .search-container{
   position: relative;
-  input[type=submit] {
+  .submit-block {
     position: absolute;
     right: 0px;
     top: 1px;
     height: 38px;
-  }
-  
-}
+  input[type=submit] {
+    height: 38px;
 
-.error-field {
-  &:placeholder-shown{
-  color: red;
-  border-color: red;
   }
+  a {
+width: 40px;
+  }
+}
 }
 
 // Media Queries
