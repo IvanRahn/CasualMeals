@@ -6,6 +6,18 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = Transaction.where(user_id: current_user.id)
+<<<<<<< HEAD
+=======
+
+    if current_user.chef?
+      @meals = Meal.where(chef_id: current_user.chef.id)
+      @meal_transactions = MealTransaction.where(meal_id: @meals.ids)
+      
+      @total_revenue = @meal_transactions.sum(:sale_price)
+      
+    end
+
+>>>>>>> origin/transactionviewjames
   end
 
   def new
@@ -29,7 +41,7 @@ class TransactionsController < ApplicationController
         format.html { render :new }
       end
     end
-    MealTransaction.create(meal_id: session[:meal_id].to_i, transaction_id: @transaction.id)
+    MealTransaction.create(meal_id: session[:meal_id].to_i, transaction_id: @transaction.id, sale_price: @amount)
     session[:transaction_id] = @transaction.id
   end
 

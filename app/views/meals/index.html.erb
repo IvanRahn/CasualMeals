@@ -1,49 +1,8 @@
 <p id="notice"><%= notice %></p>
-
 <% if current_user.chef? %>
-<%= form_with model: current_user.chef, url: chef_update_path, method: :put do |f| %>
-<div class="switch large">
- <%= f.check_box :currently_working, class: "switch-input", id: "currently_working", onChange: "this.form.submit()"%>
-  <label class="switch-paddle" for="currently_working">
-    <span class="show-for-sr">Am I working?</span>
-    <span class="switch-active" aria-hidden="true">Working</span>
-    <span class="switch-inactive" aria-hidden="true">Not working</span>
-  </label>
-</div>
-  <% end%>
-
-<%end%>
-<%= form_tag meals_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-    <%= link_to "Clear", meals_path, onClick:"location.reload()"%>
-  </p>
-<% end %>
-
-    <% if current_user.chef? %>
-    <% if current_page?(meals_path)%>
-    <%= link_to "All Meals", show_all_path%>
-    <h1>My Meals</h1>
-    <% end %>
-        <% if current_page?(show_all_path)%>
-
-        <%= link_to "My Meals", meals_path%>
-<h1>All Meals</h1>
-    <% end%>
-    <%= link_to new_meal_path do  %>
-
-<div class="card plus-card">
-      <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-        <path d="M0 0h24v24H0z" fill="none"/>
-      </svg>
-      <h4>Add meal</h4>
-    </div>
-<% end %>
- <%end%>
-
-  <!-- Filter Buttons Start -->
+    <%= render 'all_meals'%>
+<% end%>
+<!-- Filter Buttons Start -->
 <section class="filter-simple">
     <div class="button-group round">
       <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
@@ -55,6 +14,20 @@
       <button class="button hollow filter-simple-button" data-filter="american">American</button>
       <button class="button hollow filter-simple-button" data-filter="others">Others</button>
     </div>
+
+<% if current_user.chef? %>
+<div class="row small-up-2 medium-up-3 large-up-4">
+          <%= link_to new_meal_path, class:"card plus-card  column column-block" do %>
+            <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+            <h4>Add meal</h4>
+    <% end %>
+</div>
+<%end%>
+
+  
   
 
 
@@ -62,7 +35,7 @@
     <div class="row small-up-2 medium-up-3 large-up-4 card filter-simple-item <%= meal.cuisine %>">
         <div class="column column-block  ">
           <%= link_to meal, value:"meal.cusine" do %>
-          <%# <%= image_tag(meal.image_url)%>
+          <%#<%= image_tag(meal.image_url)%>
           <h5><%= meal.name %></h5>
           <p>Cuisine: <%= meal.cuisine %>
           <p>Description: <%= meal.description %></p>

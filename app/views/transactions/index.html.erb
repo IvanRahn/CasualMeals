@@ -1,15 +1,61 @@
-<h1> transactions </h1>
 
-  <tbody>
-    <% @transactions.each do |transaction| %>
-    <div>
-      <tr>
-        <td><%= transaction.user_id %></td>
-        <td><%= transaction.description %></td>
-        <td><%= transaction.delivery_address %></td>
-        <td>price: <%= MealTransaction.where(transaction_id: transaction.id).first.meal.price %></td>
-      </tr>
-      </div>
-    <% end %>
-  </tbody>
-</table>
+<% if current_user.customer? %>
+
+  <h1> Order History </h1>
+    <table>
+      <thead>
+        <tr>
+          <th> Id </th>
+          <th> Description </th>
+          <th> Delivery Address </th>
+          <th> Cuisine Name </th>
+          <th> Price </th>
+          <th> Date Purchased </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @transactions.each do |transaction| %>
+        <div>
+          <tr>
+            <td><%= transaction.id %></td>
+            <td><%= transaction.description %></td>
+            <td><%= transaction.delivery_address %></td>
+            <td><%= transaction.meals.first.cuisine %></td>
+            <td>$<%= transaction.meal_transactions.first.sale_price %></td>
+            <td><%= transaction.time   %></td>
+          </tr>
+          </div>
+        <% end %>
+      </tbody>
+    </table>
+
+  <% elsif current_user.chef? %>
+    <h1> Sales </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th> Id </th>
+          <th> Description </th>
+          <th> Price </th>
+          <th> Sale Date </th>
+        </tr>
+      </thead>
+
+      <% @meal_transactions.each do |meal_transaction| %>
+      <div>
+        <tr>
+          <td><%= meal_transaction.id %></td>
+          <td> <%= meal_transaction.order.description%>
+          <td><%= meal_transaction.sale_price %></td>
+          <td><%= meal_transaction.time %></td>
+        </tr>
+      </div>  
+      <% end %>
+
+      <h2> Total Revenue </h2>
+      <%= @total_revenue %>
+    <% end%>
+
+  </table>

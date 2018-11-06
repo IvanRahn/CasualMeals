@@ -1,0 +1,12 @@
+
+
+
+<div class="search-container">
+<%= form_tag meals_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+    <%= link_to "Clear", meals_path, onClick:"location.reload()"%>
+  </p>
+<% end %>
+</div>

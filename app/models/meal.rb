@@ -5,11 +5,11 @@ class Meal < ApplicationRecord
   mount_uploader :image, MealImageUploader
 
   def chef_name
-    user = self.chef.user 
-    "#{user.first_name} #{user.last_name}"  
+    user = self.chef.user
+    "#{user.first_name} #{user.last_name}"
   end
 
-  def self.cuisine_type
-    self.distinct.pluck(:cuisine)
-  end
+  # def self.cuisine_type
+  #   self.distinct.pluck(:cuisine)
+  # end
 end
