@@ -8,12 +8,6 @@
 
 
       
-      <div class="contact-panel footer-link" id="contact-panel" onclick="myFunction()">
-
-    <a href="#" class="contact-panel-button">
-       <span class='footer-text'> <i class="fi-magnifying-glass"></i> Search</span></a>
-<%= render 'meals/search'%>
-</div>
 
      
       <% if current_user.customer?%>
@@ -29,12 +23,4 @@
         <i class="fi-torso"></i> <span class='footer-text'>Account Settings</span>
       </a>
     </div>
- 
 <% end %> 
-<script>
-function myFunction() {
-    var element = document.getElementById("contact-panel");
-    element.classList.toggle("is-active");
-}
-
-</script>
