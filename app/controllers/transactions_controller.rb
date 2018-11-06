@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   # before_action :add
 
   def index
-    @transactions = Transaction.where(user_id: current_user.id)
+    @transactions = Transaction.where(user_id: current_user.id) 
 
     if current_user.chef?
       @meals = Meal.where(chef_id: current_user.chef.id)
