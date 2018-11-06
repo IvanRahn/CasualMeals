@@ -21,6 +21,33 @@
  @import "foundation_and_overrides";
  @import 'components.scss' ;
 
+ //james start
+
+
+ .devise {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: white;
+  label {
+    color: white;
+  }
+ }
+
+ .container {
+   height: 100vh;
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);
+   color: white;
+  }
+  .test {
+    text-align: center;
+    th {
+      text-align: center;
+    }
+  }
+ //james end
 .green {
     a {
         background-color: green;
@@ -109,6 +136,7 @@ $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
 body.background {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .mobile-buttons {
@@ -187,10 +215,14 @@ form {
       .input-group-label {
         background-color: $primary-color;
         border-color: $primary-color;
+        &.error {
+          background-color: red;
+        }
       }
   
       .input-group-field {
         border-color: $primary-color;
+        width: 100%;
       }
   
       .fa {
@@ -199,6 +231,10 @@ form {
       }
     }
   }
+  .field_with_errors {
+    width: 100%;
+  }
+  
 
 //   Filter Buttons Start
 
@@ -382,6 +418,12 @@ h1 {
 //   width: 25px;
 // }
 // Meals cards end
+.error-field {
+  &:placeholder-shown{
+  color: red;
+  border-color: red;
+  }
+}
 
 // Media Queries
 @media (max-width: 768px) {  

@@ -3,7 +3,7 @@ class ChefsController < ApplicationController
   #customer should only have show access
   # before_action :authenticate_user!
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_chef, only: [:show, :edit, :update, :destroy]
   # GET /chefs/1
   # GET /chefs/1.json
   def index
@@ -65,6 +65,10 @@ class ChefsController < ApplicationController
   end
 
   private
+
+  def check_chef
+    redirect_to meals_path if current_user.chef.id.to_s != params[:id]
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_chef

@@ -1,94 +1,99 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<% if current_user.chef?%>
-    <%=render 'meals/switch'%>
-    <%end%>
+<div class='container'>
+  <div class='center'>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<div class="form-icons">
-    <%= devise_error_messages! %>
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <% if current_user.chef?%>
+        <%=render 'meals/switch'%>
+        <%end%>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete if user_signed_in? %>
 
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-user"></i>
-      </span>
-      <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "input-group-field" %>
-    </div>
-    
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-user"></i>
-      </span>
-      <%= f.text_field :last_name, placeholder: "Last Name", class: "input-group-field" %>
-    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="form-icons">
 
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-phone"></i>
-      </span>
-        <%= f.telephone_field :phone_number, placeholder: "Phone Number", class: "input-group-field" %>
-    </div>
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:first_name].empty?%>">
+            <i class="fa fa-user"></i>
+          </span>
+          <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "input-group-field" %>
+        </div>
+        
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:last_name].empty?%>">
+            <i class="fa fa-user"></i>
+          </span>
+          <%= f.text_field :last_name, placeholder: "Last Name", class: "input-group-field" %>
+        </div>
 
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-address-card"></i>
-      </span>
-        <%= f.text_field :address, placeholder: "Address", class: "input-group-field" %>
-    </div>
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:phone_number].empty?%>">
+            <i class="fa fa-phone"></i>
+          </span>
+            <%= f.telephone_field :phone_number, placeholder: "Phone Number", class: "input-group-field" %>
+        </div>
 
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-envelope"></i>
-      </span>
-      <%= f.email_field :email, autocomplete: "email", placeholder: "Email", class: "input-group-field" %>
-    </div>
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:address].empty?%>">
+            <i class="fa fa-address-card"></i>
+          </span>
+            <%= f.text_field :address, placeholder: "Address", class: "input-group-field" %>
+        </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:email].empty?%>">
+            <i class="fa fa-envelope"></i>
+          </span>
+          <%= f.email_field :email, autocomplete: "email", placeholder: "Email", class: "input-group-field" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:password].empty?%>"">
+            <i class="fa fa-key"></i>
+          </span>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (leave blank if you don't want to change it | #{@minimum_password_length} characters minimum)", class: 'input-group-field' %>
+          <% if @minimum_password_length %>
+            <%# <br /> %>
+            <%# <em><%= @minimum_password_length %> 
+            <%# characters minimum</em> %>
+          <% end %>
+        </div>
+
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:password_confirmation].empty?%>"">
+            <i class="fa fa-key"></i>
+          </span>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "input-group-field" %>
+        </div>
+
+        <div class="field input-group">
+          <span class="input-group-label <%="error" if !devise_error_messages![:current_password].empty?%>"">
+            <i class="fa fa-key"></i>
+          </span>
+          <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current Password | Current password to confirm changes", class: "input-group-field" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update" %>
+        </div>
+      <div>
     <% end %>
 
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-key"></i>
-      </span>
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (leave blank if you don't want to change it | #{@minimum_password_length} characters minimum)", class: 'input-group-field' %>
-      <% if @minimum_password_length %>
-        <%# <br /> %>
-        <%# <em><%= @minimum_password_length %> 
-        <%# characters minimum</em> %>
+    <%# chef update details %>
+    <% if current_user.chef? %>
+      
+      <%= link_to edit_chef_path(id:current_user.chef.id) do %>
+        <h2> Update Chef Details </h2>
       <% end %>
-    </div>
+    <% end %>
 
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-key"></i>
-      </span>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "input-group-field" %>
-    </div>
+    <h3>Cancel my account</h3>
 
-    <div class="field input-group">
-      <span class="input-group-label">
-        <i class="fa fa-key"></i>
-      </span>
-      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current Password | Current password to confirm changes", class: "input-group-field" %>
-    </div>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <%= link_to "Back", :back %>
+</div>
+</div>
 
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
-  <div>
-<% end %>
-
-<%# chef update details %>
-<% if current_user.chef? %>
-  
-  <%= link_to edit_chef_path(id:current_user.chef.id) do %>
-    <h2> Update Chef Details </h2>
-  <% end %>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-
+ 
