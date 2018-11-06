@@ -48,6 +48,7 @@
 
 body {
     padding-bottom: 65px;
+    padding-top: 65px;
 
 
  .not-active {
@@ -69,6 +70,7 @@ $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
   align-items: center;
   position: fixed;
   bottom: 0;
+  
 
 
   .footer-link {
@@ -109,6 +111,16 @@ body.background {
     background-repeat: no-repeat;
 }
 
+.mobile-buttons {
+  visibility: hidden;
+  .button {
+    width: 200px;
+    border-radius: 12px;
+    opacity: 0.9;
+  }
+  
+}
+
 .welcome {
     color: #FFF;
     padding-top: 140px;
@@ -122,9 +134,10 @@ body.background {
     text-align: center;
     width: 100%;
     background: $white;
+    opacity: 0.9;
     display: flex;
     justify-content: center;
-  
+
     &:hover {
       border: none;
       background-color: $primary-color;
@@ -222,6 +235,7 @@ form {
   
 // Filter Buttons End  
 
+
 .contact-panel-button {
   display:block;
   // width: 160px;
@@ -276,4 +290,21 @@ h1 {
     height: 38px;
   }
   
+}
+
+// Media Queries
+@media (max-width: 768px) {  
+  .button-hover-reveal-wrapper {
+      visibility: hidden;
+  }    
+  .mobile-buttons {
+      visibility: visible;
+  }
+  
+}
+
+@media (min-width: 768px) {
+  .mobile-bottom-bar {
+    top: 0;
+  }
 }
