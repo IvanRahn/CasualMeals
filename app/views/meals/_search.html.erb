@@ -1,12 +1,25 @@
 
 
-
+<% if current_user.chef?%>
 <div class="search-container">
-<%= form_tag meals_path, :method => 'get' do %>
-  <p>
+<%= form_tag show_all_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
+    <div class="submit-block">
     <%= submit_tag "Search", :name => nil %>
-    <%= link_to "Clear", meals_path, onClick:"location.reload()"%>
-  </p>
+    <%= link_to "Clear", show_all_path, onClick:"location.reload()"%>
+    </div>
 <% end %>
 </div>
+<% end %>
+
+<% if current_user.customer?%>
+<div class="search-container">
+<%= form_tag meals_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <div class="submit-block">
+    <%= submit_tag "Search", :name => nil %>
+    <%= link_to "Clear", show_all_path, onClick:"location.reload()"%>
+    </div>
+<% end %>
+</div>
+<% end %>

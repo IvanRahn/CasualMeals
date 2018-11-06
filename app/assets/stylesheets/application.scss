@@ -284,7 +284,7 @@ form {
     padding: 10px 20px;
     border: 1px solid;
     border-radius: 4px;
-    background: #336600;
+    background: $primary-color;
     color: #FFF;
     -webkit-transition: background-color 0.1s, color 0.1s;
   }
@@ -293,13 +293,10 @@ form {
     height: 0;
     overflow: hidden;
     width: 300px;
-    background: red;
     display: block;
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;    
     margin-top: 10px;
-    display:block;
   }
   input:checked + .dropdown {
     height: 170px;
