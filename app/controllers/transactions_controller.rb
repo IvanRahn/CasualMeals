@@ -6,8 +6,6 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = Transaction.where(user_id: current_user.id)
-<<<<<<< HEAD
-=======
 
     if current_user.chef?
       @meals = Meal.where(chef_id: current_user.chef.id)
@@ -17,7 +15,6 @@ class TransactionsController < ApplicationController
       
     end
 
->>>>>>> origin/transactionviewjames
   end
 
   def new
@@ -69,6 +66,7 @@ class TransactionsController < ApplicationController
       # :source => params[:stripeToken],
 
     )
+    @transaction.charge_id = charge.id
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to "/"
