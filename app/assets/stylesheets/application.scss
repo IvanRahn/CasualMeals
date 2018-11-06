@@ -191,6 +191,7 @@ form {
   
       .input-group-field {
         border-color: $primary-color;
+        width: 100%;
       }
   
       .fa {
@@ -198,6 +199,9 @@ form {
         width: 1rem; // makes the width of icon labels equal
       }
     }
+  }
+  .field_with_errors {
+    width: 100%;
   }
 
 //   Filter Buttons Start
@@ -290,6 +294,13 @@ h1 {
     height: 38px;
   }
   
+}
+
+.error-field {
+  &:placeholder-shown{
+  color: red;
+  border-color: red;
+  }
 }
 
 // Media Queries
