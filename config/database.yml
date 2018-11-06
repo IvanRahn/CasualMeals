@@ -83,3 +83,6 @@ production:
   database: CasualMeals_production
   username: CasualMeals
   password: <%= ENV['CASUALMEALS_DATABASE_PASSWORD'] %>
+  # heroku
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
