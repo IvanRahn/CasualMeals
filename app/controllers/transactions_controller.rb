@@ -66,6 +66,7 @@ class TransactionsController < ApplicationController
       # :source => params[:stripeToken],
 
     )
+    @transaction.charge_id = charge.id
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to "/"
