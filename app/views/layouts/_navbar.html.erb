@@ -4,10 +4,6 @@
       <a href= "<%= meals_path %>" class="footer-link">
         <i class="fi-home"></i> <span class='footer-text'>Home</span>
       </a>
-<<<<<<< HEAD
-
-
-
       
       <div class="contact-panel footer-link" id="contact-panel" onclick="myFunction()">
 
@@ -15,39 +11,9 @@
        <span class='footer-text'> <i class="fi-magnifying-glass"></i> Search</span></a>
 <%= render 'meals/search'%>
 </div>
-      <!--
-  <form action="">
-    <div class="row">
-      <label>Full name *
-        <input type="text" placeholder="Full name">
-      </label>
-    </div>
-    <div class="row">
-      <label>Email *
-        <input type="email" placeholder="Email address">
-      </label>
-    </div>
-    <div class="row">
-      <label>Message *
-        <textarea placeholder="Describe your needs" rows="3"></textarea>
-      </label>
-    </div>
-    <div class="contact-panel-actions">
-      <button class="cancel-button" data-toggle="contact-panel">Nevermind</button>
-      <input type="submit" class="button submit-button" value="Submit">
-    </div>
-  </form>
-</div>
--->
-      <% if current_user.customer? %>
-      <a href="#" class="footer-link">
-=======
-      <a href="#" class="footer-link">
-        <i class="fi-magnifying-glass"></i> <span class='footer-text'>Search</span>
-      </a>
+
       <% if current_user.customer?%>
       <a href= <%= transactions_path %> class="footer-link">
->>>>>>> origin/transactionviewjames
         <i class="fi-list-bullet"></i> <span class='footer-text'>Order History</span>
       </a>
       <% else %>
