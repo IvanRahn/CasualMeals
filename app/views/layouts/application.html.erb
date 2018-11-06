@@ -8,7 +8,7 @@
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"> </script>
     <link rel="stylesheet" 
       href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css"/>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -19,9 +19,6 @@
   </head>
 
   <body>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete if user_signed_in? %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= render 'layouts/navbar' %>
   </body>

@@ -21,6 +21,24 @@
  @import "foundation_and_overrides";
  @import 'components.scss' ;
 
+ //james start
+ .bg-grey {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+ }
+
+ .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+ }
+ .container {
+   height: 100vh;
+   background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+  }
+
+ //james end
 .green {
     a {
         background-color: green;
@@ -109,6 +127,7 @@ $mobile-bottom-bar-primary-dark: darken($primary-color, 20%);
 body.background {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .mobile-buttons {
@@ -187,6 +206,9 @@ form {
       .input-group-label {
         background-color: $primary-color;
         border-color: $primary-color;
+        &.error {
+          background-color: red;
+        }
       }
   
       .input-group-field {
@@ -203,6 +225,7 @@ form {
   .field_with_errors {
     width: 100%;
   }
+  
 
 //   Filter Buttons Start
 
