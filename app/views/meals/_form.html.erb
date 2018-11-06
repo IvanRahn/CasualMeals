@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, :min => 0%>
   </div>
 
   <div class="field">
-    <%= form.label :delivery_time %>
-    <%= form.number_field :delivery_time %>
+    <%= form.label :delivery_time, text='Delivery Time (Mins)' %>
+    <%= form.number_field :delivery_time, :step => 5, :in => [0,60], :value => 'mins'%>
   </div>
 
   <div class="field">

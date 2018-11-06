@@ -22,22 +22,31 @@
  @import 'components.scss' ;
 
  //james start
- .bg-grey {
-  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
- }
 
- .center {
+
+ .devise {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   text-align: center;
+  color: white;
+  label {
+    color: white;
+  }
  }
+
  .container {
    height: 100vh;
-   background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);
+   color: white;
   }
-
+  .test {
+    text-align: center;
+    th {
+      text-align: center;
+    }
+  }
  //james end
 .green {
     a {
