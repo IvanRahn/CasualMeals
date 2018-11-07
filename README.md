@@ -1,24 +1,68 @@
-# README
+#### Short Answer Questions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. What is the need (i.e. challenge) that you will be addressing in your project?
+To build a platform to allow chefs (from any level) to provide a product/service to the market. 
 
-Things you may want to cover:
+2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
+At the moment, there are many people happy to provide a food service (casually or on a full-time basis), however it is difficult for them to connect to potential customers. It’s a problem that needs solving as the market should allow for all levels of chefs.
 
-* Ruby version
+3. Describe the project will you be conducting and how. your App will address the needs.
+Our project will let chefs make food from home and list it on our App. It allow allow buyers to search for home-made food they would like to order and have it delivered. 
 
-* System dependencies
+4. Describe the network infrastructure the App may be based on.
+Our App will be deployed on Heroku and AWS is where our database will be stored. 
 
-* Configuration
+5. Identify and describe the software to be used in your App.
+Heroku offers a Platform as a Service (PaaS). In comparison to a Infrastructure as a Service (IaaS), PaaS provides an environment to push code with existing basic configuration. This means we are able to deploy our App quicker and do not have to worry about manually setting up configuration, where it is a simple process of moving our app from a local system to Heroku using GIT.
 
-* Database creation
+AWS uses the Amazon Relationship Database Service (RDS), easy to set up, operate and scale a relational database in the cloud. RDS is compatible with six database engines, including Postgresql. 
 
-* Database initialization
+6. Identify the database to be used in your App and provide a justification for your choice.
+We will be using Postgresql as it the world’s most advanced open source database.
 
-* How to run the test suite
+7. Identify and describe the production database setup (i.e. postgres instance).
+8. Describe the architecture of your App.
+Ruby on Rails (RoR) was the main framework used in our application. RoR follows the Model-View-Controller (MVC) architectural pattern. It also follows the rule of convention over configuration, which means that it takes some decision for you so you don't have to worry about these things.
 
-* Services (job queues, cache servers, search engines, etc.)
+9. Explain the different high-level components (abstractions) in your App.
+10. Detail any third party services that your App will use.
+11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+12. Discuss the database relations to be implemented.
+13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
+14. Provide your database schema design.
+15. Provide User stories for your App.
+* Ryan wants to list the food he is cooking
+* Garret wants to sign-up so that his details are saved
+* Ryan wants to list the food he is cooking
+* Gordon wants to sell his food consistently
+* Gordon wants to sell his food leftovers
+* Sinan wants to know more about the app
+* Jamie wants to sign up so that his details are saved
+* Garret would like to browse and find food he wants to order
+* Garret wants to be able to pay for food safely 
+* Garret would like to be able to order his food quickly
+* Adam would like to order food in bulk
+* Adam would like to order food consistently
+* Ryan wants to recieve feedback on his food
+* Jamie wants to notify his friends about the food he made
+* Jamie wants to specify how far he can deliver food himself
+* Ryan wants to have access to delivery drivers
+* Gordon wants to recieve payment for his food
+* Sinan would like to find cheap food
+* Ghalip would like to have options for healthy/non-allergic food
+* James would like to be able to find food by cuisines
 
-* Deployment instructions
+16. Provide Wireframes for your App.
+17. Describe the way tasks are allocated and tracked in your project.
+Trello will be our main tool for managing the project, tasks will be allocated to team members and updated by the team member.
 
-* ...
+18. Discuss how Agile methodology is being implemented in your project.
+Stand-up meetings to provide individual updates including work progress and issues we are having. Standing up helps us keep focused and on point. 
+
+19. Provide an overview and description of your Source control process.
+Team members will be working collaboratively on the same git repository as a contributer. One team member will create the git repository on a remote repository GitHub. Team members will develop branches as they work on new features on the new application, sub-branches can also be created if additional sub-features may be required. Features will be merged into a development branch for review. Once team members agree on the working feature the development branch is merged into the master branch.
+
+20. Provide an overview and description of your Testing process.
+21. Discuss and analyse requirements related to information system security.
+22. Discuss methods you will use to protect information and data.
+23. Research what your legal obligations are in relation to handling user data.
