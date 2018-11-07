@@ -1,3 +1,5 @@
+<div class='devise'>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,7 +24,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag(@meal.image_url) %>
+  <%= image_tag @meal.image_url , :class => "style_image" %>
 </p>
 
 <p>
@@ -31,10 +33,11 @@
 </p>
 <% if current_user.chef? and @meal.chef_id == current_user.chef.id %>
 <%= link_to 'Edit', edit_meal_path(@meal) %> 
-<%= link_to 'destroy', @meal, method: :delete %>
+<%= link_to 'Delete', @meal, method: :delete %>
 <%= link_to 'Back', meals_path %>
 <% end%>
 <% if current_user.customer? or (@meal.chef_id != current_user.chef.id)%>
 <%= link_to 'buy', new_transaction_path(meal_id: @meal.id) %>
 <% end %>
 
+</div>
