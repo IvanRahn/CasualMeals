@@ -20,6 +20,7 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     session[:meal_id] = params[:meal_id]
+    @amount = set_amount
   end
 
   def show
@@ -39,7 +40,6 @@ class TransactionsController < ApplicationController
       end
     end
     MealTransaction.create(meal_id: session[:meal_id].to_i, transaction_id: @transaction.id, sale_price: @amount)
-    session[:transaction_id] = @transaction.id
   end
 
   def update
@@ -54,13 +54,13 @@ class TransactionsController < ApplicationController
 
   def process_payment
     # @amount = amount_to_be_charged
-    @amount = set_amount*100
+    @amount = set_amount
     customer = Stripe::Customer.retrieve(current_user.stripe_id)
     customer.source = params[:stripeToken]
     customer.save
     charge = Stripe::Charge.create(
       :customer => current_user.stripe_id,
-      :amount => @amount,
+      :amount => @amount*100,
       :description => "Rails Stripe customer",
       :currency => "usd",
       # :source => params[:stripeToken],

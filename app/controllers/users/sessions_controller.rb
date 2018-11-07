@@ -15,8 +15,11 @@ class Users::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
+    if current_user.chef?
     current_user.chef.currently_working = false
+    
     current_user.chef.save
+    end
     session.clear
     super
   end
