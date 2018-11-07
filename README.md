@@ -1,4 +1,53 @@
-#### Short Answer Questions
+## Casual Meals
+
+### A link (URL) to your published App
+https://casualmeals.herokuapp.com/
+### A link to your GitHub repository
+https://github.com/IvanRahn/CasualMeals
+
+### About the Project (Purpose definition)
+
+
+### Functionality / features
+
+### Screenshots
+
+### Tech stack (e.g. html, css, deployment platform, etc)
+    * html5 and css3
+    * Foundation Frameworks
+    * Ruby on Rails Framework
+    * Javascript
+    * Heroku
+    * AWS - S3
+
+### Instructions on how to setup, configure and use your App.
+If you would like to see the code and test it out feel free to do so by following the below steps. Please note this is best performed on the terminal
+
+Navigate to a directory where you would like the repository to be stored at, then run the following command  
+`git clone https://github.com/IvanRahn/CasualMeals.git`
+
+
+
+## Design documentation
+
+### Design process
+
+### User stories
+
+### A workflow diagram of the user journey/s.
+
+### Wireframes
+
+### Database Entity Relationship Diagrams
+
+### Details of planning process including,
+
+### Project plan & timeline
+
+### Screenshots of Trello board(s)
+
+
+### Short Answer Questions
 
 1. What is the need (i.e. challenge) that you will be addressing in your project?
 To build a platform to allow chefs (from any level) to provide a product/service to the market. 
@@ -29,15 +78,15 @@ Ruby on Rails (RoR) was the main framework used in our application. RoR follows 
 10. Detail any third party services that your App will use.
 Third party services that was utlised by our app is Stripe and AWS (Amazon Web Services).
 
-* Stripe allows individuals and businesses to recieve payments over the internet. Stripe provides the technical, fraud prevention, and banking infrastructure required to orpeate on-line payment systems. The reason for its use is that it allows for easy and secure payment and is easily integrated into our application for a speedy deployment.
+    * Stripe allows individuals and businesses to recieve payments over the internet. Stripe provides the technical, fraud prevention, and banking infrastructure required to orpeate on-line payment systems. The reason for its use is that it allows for easy and secure payment and is easily integrated into our application for a speedy deployment.
 
-* AWS is a secure cloud services platform that offers users storage in their databases, content delivery, and other functionaility to help businesses scale and grow. AWS was used in our application to securely store images that is uploaded from our application.
+    * AWS is a secure cloud services platform that offers users storage in their databases, content delivery, and other functionaility to help businesses scale and grow. AWS was used in our application to securely store images that is uploaded from our application.
 
-* Carrierwave Gem - a gem that provides a simple way to upload files from Ruby application, the gem was used to assist in uploading images to AWS
+    * Carrierwave Gem - a gem that provides a simple way to upload files from Ruby application, the gem was used to assist in uploading images to AWS
 
-* devise gem - a flexible authentication solution for based on warden. The devise gem was used to our application to assist in handling registering users and database authentication
+    * devise gem - a flexible authentication solution for based on warden. The devise gem was used to our application to assist in handling registering users and database authentication
 
-* geocoder gem - enhances webpages by presenting location relevant to the user, has the functionaility such as finding coordinates with street addresses or vice versa. The gem is used to help extract a users longitudinal and latitudinal coordinates when they input their address.
+    * geocoder gem - enhances webpages by presenting location relevant to the user, has the functionaility such as finding coordinates with street addresses or vice versa. The gem is used to help extract a users longitudinal and latitudinal coordinates when they input their address.
 
 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 Casual Meals data structure is similar to deliveroo and uberEats, where customers are able to purchase food from a supplier and suppliers are able to sell their foods. Casual Meals enables all users to be able to sign up whether they are a consumer (customer) or a supplier (chef). Chef's are able to upload their own meals and customers are able to view the meals cooked by the chef's for purchasing
@@ -47,26 +96,26 @@ Casual Meals data structure is similar to deliveroo and uberEats, where customer
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 14. Provide your database schema design.
 15. Provide User stories for your App.
-* Ryan wants to list the food he is cooking
-* Garret wants to sign-up so that his details are saved
-* Ryan wants to list the food he is cooking
-* Gordon wants to sell his food consistently
-* Gordon wants to sell his food leftovers
-* Sinan wants to know more about the app
-* Jamie wants to sign up so that his details are saved
-* Garret would like to browse and find food he wants to order
-* Garret wants to be able to pay for food safely 
-* Garret would like to be able to order his food quickly
-* Adam would like to order food in bulk
-* Adam would like to order food consistently
-* Ryan wants to recieve feedback on his food
-* Jamie wants to notify his friends about the food he made
-* Jamie wants to specify how far he can deliver food himself
-* Ryan wants to have access to delivery drivers
-* Gordon wants to recieve payment for his food
-* Sinan would like to find cheap food
-* Ghalip would like to have options for healthy/non-allergic food
-* James would like to be able to find food by cuisines
+    * Ryan wants to list the food he is cooking
+    * Garret wants to sign-up so that his details are saved
+    * Ryan wants to list the food he is cooking
+    * Gordon wants to sell his food consistently
+    * Gordon wants to sell his food leftovers
+    * Sinan wants to know more about the app
+    * Jamie wants to sign up so that his details are saved
+    * Garret would like to browse and find food he wants to order
+    * Garret wants to be able to pay for food safely 
+    * Garret would like to be able to order his food quickly
+    * Adam would like to order food in bulk
+    * Adam would like to order food consistently
+    * Ryan wants to recieve feedback on his food
+    * Jamie wants to notify his friends about the food he made
+    * Jamie wants to specify how far he can deliver food himself
+    * Ryan wants to have access to delivery drivers
+    * Gordon wants to recieve payment for his food
+    * Sinan would like to find cheap food
+    * Ghalip would like to have options for healthy/non-allergic food
+    * James would like to be able to find food by cuisines
 
 16. Provide Wireframes for your App.
 17. Describe the way tasks are allocated and tracked in your project.
