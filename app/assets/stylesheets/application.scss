@@ -274,6 +274,39 @@ form {
   
 // Filter Buttons End  
 
+// Filter Dropdown for Mobile Start
+.filter-mobile {
+  visibility: hidden;
+  input {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 4px;
+    background: $primary-color;
+    color: #FFF;
+    -webkit-transition: background-color 0.1s, color 0.1s;
+  }
+  .dropdown {
+    -webkit-transition: height .3s ease;
+    height: 0;
+    overflow: hidden;
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+    margin-top: 10px;
+  }
+  input:checked + .dropdown {
+    height: 170px;
+  }
+}
+
+// Filter Drop for Mobile End
 
 .contact-panel-button {
   display:block;
@@ -428,22 +461,7 @@ h1 {
   }
 }
 
-// Media Queries
-@media (max-width: 768px) {  
-  .button-hover-reveal-wrapper {
-      visibility: hidden;
-  }    
-  .mobile-buttons {
-      visibility: visible;
-  }
-  
-}
 
-@media (min-width: 768px) {
-  .mobile-bottom-bar {
-    top: 0;
-  }
-}
 
 .product-card {
   background-color: $white;
@@ -500,3 +518,26 @@ h1 {
   width: 25px;
 }
 
+// Media Queries
+@media (max-width: 768px) {  
+  .button-hover-reveal-wrapper {
+      visibility: hidden;
+  }    
+  .mobile-buttons {
+      visibility: visible;
+  }
+  .button-group {
+    visibility: hidden;
+  }
+  .filter-mobile {
+    visibility: visible;
+  }
+
+  
+}
+
+@media (min-width: 768px) {
+  .mobile-bottom-bar {
+    top: 0;
+  }
+}

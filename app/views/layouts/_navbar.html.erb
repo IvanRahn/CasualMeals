@@ -1,26 +1,20 @@
-
 <% if user_signed_in?  %>
-    <div class="mobile-bottom-bar">
-      <a href= "<%= meals_path %>" class="footer-link">
-        <i class="fi-home"></i> <span class='footer-text'>Home</span>
-      </a>
+        <nav class="mobile-bottom-bar">
+          <a href= "<%= meals_path %>" class="footer-link">
+            <i class="fi-home"></i> <span class='footer-text'>Home</span>
+          </a>
+          <% if current_user.customer?%>
+          <a href= <%= transactions_path %> class="footer-link">
+            <i class="fi-list-bullet"></i> <span class='footer-text'>Order History</span>
+          </a>
+          <% else %>
+          <a href= <%= transactions_path%>  class="footer-link">
+            <i class="fi-list-bullet"></i> <span class='footer-text'>Sales History</span>
+          </a>
+          <% end %>
+          <a href="<%= edit_user_registration_path %>" class="footer-link">
+            <i class="fi-torso"></i> <span class='footer-text'>Account Settings</span>
+          </a>
+        </nav>
 
-
-
-      
-
-     
-      <% if current_user.customer?%>
-      <a href= <%= transactions_path %> class="footer-link">
-        <i class="fi-list-bullet"></i> <span class='footer-text'>Order History</span>
-      </a>
-      <% else %>
-       <a href= <%= transactions_path%>  class="footer-link">
-        <i class="fi-list-bullet"></i> <span class='footer-text'>Sales History</span>
-      </a>
-      <% end %>
-      <a href="<%= edit_user_registration_path %>" class="footer-link">
-        <i class="fi-torso"></i> <span class='footer-text'>Account Settings</span>
-      </a>
-    </div>
 <% end %> 
