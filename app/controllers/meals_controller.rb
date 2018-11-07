@@ -27,6 +27,10 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
+    if !current_user.chef.verification
+      flash[:notice] = "Please make sure you comply"
+      redirect_to edit_chef_path(current_user.chef.id)
+    end
   end
 
   # GET /meals/1/edit
