@@ -7,17 +7,33 @@ class MealsController < ApplicationController
   # GET /meals.json
 
   def index
-    @meals = current_user.customer? ? Meal.with_working_chef : current_user.chef.meals
-    check_location
-    search
-  end
-
-  def show_all
     @meals = Meal.with_working_chef
-    check_location
-    search
-    render "index"
-  end
+      check_location
+      search
+    end
+
+    def my_meals
+     @meals =  current_user.chef.meals
+    end
+      #   @meals = Meal.with_working_chef
+      #   check_location
+      #   search
+      #   render "index"
+      # end
+
+
+  # def index
+  #   @meals = current_user.customer? ? Meal.with_working_chef : current_user.chef.meals
+  #   check_location
+  #   search
+  # end
+
+  # def show_all
+  #   @meals = Meal.with_working_chef
+  #   check_location
+  #   search
+  #   render "index"
+  # end
 
   # GET /meals/1
   # GET /meals/1.json

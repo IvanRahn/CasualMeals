@@ -1,0 +1,22 @@
+
+  <div class="grid-container fluid">
+      <div class="grid-x grid-margin-x text-center">
+
+    <% @meals.each do |meal| %>
+        <div class="cell small-12 medium-6 large-4 filter-simple-item <%= meal.cuisine %>">
+          <%= link_to meal, value:"meal.cusine" do %>
+          <div class="product-card">
+            <div class="product-card-thumbnail">
+              <%= image_tag meal.image_url, :class => "style_image" %>  
+            </div>
+            <h2 class="product-card-title"><%= meal.name %></h2>
+            <span class="product-card-cuisine">Cuisine: <%= meal.cuisine %></span><br/>
+            <span class="product-card-chef">By Chef: <%= meal.chef_name %></span><br/>
+            <span class="product-card-price">$<%= meal.price %></span><br/>
+          </div>
+          <% end %>
+        </div>
+    <% end %>
+
+      </div>
+  </div>

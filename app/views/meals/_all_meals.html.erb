@@ -1,9 +1,0 @@
-<% if current_page?(meals_path)%>
-    <h1>My Meals</h1>
-    <%= link_to "All Meals", show_all_path, onClick:"location.reload()"%>
-<% end %>
-
-<% if current_page?(show_all_path)%>
-    <h1>All Meals</h1>
-    <%= link_to "My Meals", meals_path, onClick:"location.reload()"%>
-<% end%>

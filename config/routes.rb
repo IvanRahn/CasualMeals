@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :transactions, except: [:edit, :update]
   post "/process_payment" => "transactions#process_payment", as: "payment"
   put "/meals" => "chefs#working", as: "chef_update"
-  get "/allmeals" => "meals#show_all", as: "show_all"
+  get "/my_meals" => "meals#my_meals", as: "my_meals"
   get "/meals" => "meals#search", as: "search"
 end
