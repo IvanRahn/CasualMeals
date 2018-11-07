@@ -20,6 +20,7 @@ class ChefsController < ApplicationController
 
   # GET /chefs/1/edit
   def edit
+    
   end
 
   # POST /chefs
@@ -48,7 +49,7 @@ class ChefsController < ApplicationController
   def update
     respond_to do |format|
       if @chef.update(chef_params)
-        format.html { redirect_to @chef, notice: "Chef was successfully updated." }
+        format.html { redirect_to meals_path, notice: "Chef was successfully updated." }
       else
         format.html { render :edit }
       end

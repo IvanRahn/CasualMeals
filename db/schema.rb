@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_232013) do
+ActiveRecord::Schema.define(version: 2018_11_07_053510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2018_11_05_232013) do
     t.integer "price"
     t.integer "delivery_time"
     t.text "image", default: "http://mamadips.com/wp-content/uploads/2016/11/defimage.gif"
-    t.bigint "chef_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "chef_id"
     t.index ["chef_id"], name: "index_meals_on_chef_id"
   end
 
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2018_11_05_232013) do
     t.string "address"
     t.integer "type_of_user"
     t.string "stripe_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -80,6 +82,6 @@ ActiveRecord::Schema.define(version: 2018_11_05_232013) do
   add_foreign_key "chefs", "users"
   add_foreign_key "meal_transactions", "meals"
   add_foreign_key "meal_transactions", "transactions"
-  add_foreign_key "meals", "users", column: "chef_id"
+  add_foreign_key "meals", "chefs"
   add_foreign_key "transactions", "users"
 end

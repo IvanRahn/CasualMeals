@@ -87,7 +87,7 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:description, :delivery_address, :user_id, :meal_id, :stipe_id)
+    params.require(:transaction).permit(:description, :delivery_address, :user_id, :meal_id)
   end
 
   # def amount_to_be_charged
