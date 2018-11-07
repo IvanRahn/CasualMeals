@@ -18,7 +18,6 @@
       <button class="button hollow filter-simple-button" data-filter="russian">Russian</button>
       <button class="button hollow filter-simple-button" data-filter="others">Others</button>
     </div>
-
   
     
 <% if current_user.customer? or (current_user.chef? and current_page?(show_all_path))%>
@@ -78,27 +77,4 @@
     </div>
 </div>
 
-<!--
-  <% @meals.each do |meal| %>
-    <div class="row small-up-2 medium-up-3 large-up-4 card filter-simple-item <%= meal.cuisine %>">
-        <div class="column column-block  ">
-          <%= link_to meal, value:"meal.cusine" do %>
-            <div class="image-container">
-              <%= image_tag(meal.image_url, class: "style-image") %>
-              
-              <div class="overlay-text">
-                <h6><strong><%= meal.name %></strong></h6>
-                <p>Cuisine: <%= meal.cuisine %>
-                <p>Description: <%= meal.description %></p> 
-                <p>Delivery time: <%= meal.delivery_time %></p>
-                <p>Chef: <%= meal.chef_name %></p>
-                <p><strong>Price: $<%= meal.price %></strong></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-    </div>
-
-  <% end %>
--->
 </section>
