@@ -1,0 +1,5 @@
+  <%= form_tag new_location_path, :method => 'get' do%>
+
+    <%= text_field_tag :location, params[:location] %>
+    <%= submit_tag "save"%>
+<% end %>
