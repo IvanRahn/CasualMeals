@@ -15,7 +15,7 @@ class User < ApplicationRecord
   #set enums for type_of_user
   enum type_of_user: {'customer': 0, 'chef': 1}
   # associations
-  has_one :chef
+  has_one :chef, dependent: :destroy
   has_many :orders
   # create stripe id on registration
   after_create_commit :add_stripe_id
