@@ -22,35 +22,26 @@
  @import 'components.scss' ;
 
  //james start
-
-
  .devise {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  color: white;
-  label {
-    color: white;
-  }
  }
 .center {
   text-align: center;
 }
-// .product-card-thumbnail {
-  
-//   background-color: green;
-// }
+.white {
+  label {
+    color: white;
+  }
+}
 .product-card {
   box-shadow: 0 3px 2px -2px #bdc3c7;
 }
 .style_image {
   border-radius: 50%;
 }
-// .cell {
-//   // background-color: purple;
-//   box-shadow: 5px 10px;
-// }
  .container {
    height: 100vh;
    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);

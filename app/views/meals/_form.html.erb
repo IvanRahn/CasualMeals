@@ -1,47 +1,47 @@
-<%= form_with(model: meal, local: true) do |form| %>
-  <% if meal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+  <%= form_with(model: meal, local: true) do |form| %>
+    <% if meal.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
 
-      <ul>
-      <% meal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% meal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :cuisine %>
+      <%= form.select :cuisine,
+      ['chinese', 'french', 'japanese', 'vietnamese', 'turkish', 'american', 'others'  ] %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price, :min => 0%>
+    </div>
+
+    <div class="field">
+      <%= form.label :delivery_time, text='Delivery Time (Mins)' %>
+      <%= form.number_field :delivery_time, :step => 5, :in => [0,60], :value => 'mins'%>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Upload Meal" %>
     </div>
   <% end %>
-<div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :cuisine %>
-    <%= form.select :cuisine,
-    ['chinese', 'french', 'japanese', 'vietnamese', 'turkish', 'american', 'others'  ] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, :min => 0%>
-  </div>
-
-  <div class="field">
-    <%= form.label :delivery_time, text='Delivery Time (Mins)' %>
-    <%= form.number_field :delivery_time, :step => 5, :in => [0,60], :value => 'mins'%>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Upload Meal" %>
-  </div>
-<% end %>
