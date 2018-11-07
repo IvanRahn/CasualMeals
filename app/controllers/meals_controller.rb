@@ -2,14 +2,14 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   #check that only chef who owns the meal can edit or delete
   before_action :check_chef, only: [:edit, :update, :destroy, :new, :create]
-  
+
   # GET /meals
   # GET /meals.json
 
   def index
     @meals =
       if current_user.customer? or params[:show_all]
-        Meal.includes(:chef).where(chef_id: Chef.where(currently_working: true))
+        Meal.includes(:chef, chef: :user).where(chef_id: Chef.where(currently_working: true))
       elsif current_user.chef?
         current_user.chef.meals
       end
@@ -17,15 +17,17 @@ class MealsController < ApplicationController
   end
 
   def search
+    query = params[:search].to_s
     if !params[:search].nil?
-      @meals = Meal.includes(:chef)
+      @meals = Meal.includes(:chef, chef: :user).references(:users)
         .where(chef_id: Chef.where(currently_working: true))
-        .fuzzy_search(name: "#{params[:search]}")
+        .fuzzy_search({name: query, cuisine: query, users:{first_name: query, last_name: query}}, false)
     end
   end
 
   def show_all
-    @meals = Meal.includes(:chef).where(chef_id: Chef.where(currently_working: true))
+    @meals = Meal.includes(:chef, chef: :user).where(chef_id: Chef.where(currently_working: true))
+    search
 
     render "index"
   end
