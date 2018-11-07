@@ -29,7 +29,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  // text-align: center;
   color: white;
   label {
     color: white;
@@ -38,12 +37,14 @@
 .center {
   text-align: center;
 }
+.display {
+}
  .container {
    height: 100vh;
    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);
    color: white;
   }
-  .test {
+  .history {
     text-align: center;
     th {
       text-align: center;
