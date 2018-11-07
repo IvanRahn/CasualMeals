@@ -12,7 +12,7 @@ class Meal < ApplicationRecord
   # validate description
   validates :description, length: {minimum: 25}
   # validate price
-  validates :price, format: {with: /\A\d{0,8}\z/}
+  validates :price, format: {with: /\A\d{1,8}\z/}
   # validates name, image
   validates :name, :image, presence: true
 
