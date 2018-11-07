@@ -29,13 +29,15 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  text-align: center;
+  // text-align: center;
   color: white;
   label {
     color: white;
   }
  }
-
+.center {
+  text-align: center;
+}
  .container {
    height: 100vh;
    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(welcome_page_wallpaper.jpg);

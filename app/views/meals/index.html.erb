@@ -1,104 +1,107 @@
-<p id="notice"><%= notice %></p>
-<% if current_user.chef? %>
-    <%= render 'all_meals'%>
-    <% else %>
-    <h1> Meals </h1>
-<% end%>
-<!-- Filter Buttons Start -->
-<section class="filter-simple">
-    <div class="button-group round">
-      <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
-      <button class="button hollow filter-simple-button" data-filter="chinese">Chinese</button>
-      <button class="button hollow filter-simple-button" data-filter="french">French</button>
-      <button class="button hollow filter-simple-button" data-filter="japanese">Japanese</button>
-      <button class="button hollow filter-simple-button" data-filter="vietnamese">Vietnamese</button>
-      <button class="button hollow filter-simple-button" data-filter="turkish">Turkish</button>
-      <button class="button hollow filter-simple-button" data-filter="american">American</button>
-      <button class="button hollow filter-simple-button" data-filter="indian">Indian</button>
-      <button class="button hollow filter-simple-button" data-filter="russian">Russian</button>
-      <button class="button hollow filter-simple-button" data-filter="others">Others</button>
-    </div>
 
-  
-    
-<% if current_user.customer? or (current_user.chef? and current_page?(show_all_path))%>
-<%=render 'search'%>
-<%end%>
-
-<div class="filter-mobile text-center">
-    <label for="check"> Filter</label></i>
-    <input id="check" type="checkbox">
-    <div class="dropdown">
-      <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
-      <button class="button hollow filter-simple-button" data-filter="chinese">Chinese</button>
-      <button class="button hollow filter-simple-button" data-filter="french">French</button>
-      <button class="button hollow filter-simple-button" data-filter="japanese">Japanese</button>
-      <button class="button hollow filter-simple-button" data-filter="vietnamese">Vietnamese</button>
-      <button class="button hollow filter-simple-button" data-filter="turkish">Turkish</button>
-      <button class="button hollow filter-simple-button" data-filter="american">American</button>
-      <button class="button hollow filter-simple-button" data-filter="others">Others</button>
-    </div>
-    </div>
-</div>
-
-    
-<% if current_user.chef? %>
-<div class="row small-up-2 medium-up-3 large-up-4 text-center">
-          <%= link_to new_meal_path, class:"card plus-card column column-block text-center", style: "width:200px; height: 200px; margin-left: auto;
-    margin-right: auto;" do %>
-            <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
-            <h4>Add meal</h4>
-    <% end %>
-</div>
-<%end%>
-
-
-<div class="grid-container fluid">
-    <div class="grid-x grid-margin-x text-center">
-
-  <% @meals.each do |meal| %>
-      <div class="cell small-12 medium-6 large-4 filter-simple-item <%= meal.cuisine %>">
-         <%= link_to meal, value:"meal.cusine" do %>
-        <div class="product-card">
-          <div class=product-card-thumbnail>
-            <%= image_tag(meal.image_url) %>  
-          </div>
-          <h2 class="product-card-title"><%= meal.name %></h2>
-          <span class="product-card-cuisine">Cuisine: <%= meal.cuisine %></span><br/>
-          <span class="product-card-chef">By Chef: <%= meal.chef_name %></span><br/>
-          <span class="product-card-price">$<%= meal.price %></span><br/>
-        </div>
-        <% end %>
+<body>
+  <p id="notice"><%= notice %></p>
+  <% if current_user.chef? %>
+      <%= render 'all_meals'%>
+      <% else %>
+      <h1> Meals </h1>
+  <% end%>
+  <!-- Filter Buttons Start -->
+  <section class="filter-simple">
+      <div class="button-group round">
+        <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
+        <button class="button hollow filter-simple-button" data-filter="chinese">Chinese</button>
+        <button class="button hollow filter-simple-button" data-filter="french">French</button>
+        <button class="button hollow filter-simple-button" data-filter="japanese">Japanese</button>
+        <button class="button hollow filter-simple-button" data-filter="vietnamese">Vietnamese</button>
+        <button class="button hollow filter-simple-button" data-filter="turkish">Turkish</button>
+        <button class="button hollow filter-simple-button" data-filter="american">American</button>
+        <button class="button hollow filter-simple-button" data-filter="indian">Indian</button>
+        <button class="button hollow filter-simple-button" data-filter="russian">Russian</button>
+        <button class="button hollow filter-simple-button" data-filter="others">Others</button>
       </div>
-  <% end %>
 
-    </div>
-</div>
+    
+      
+  <% if current_user.customer? or (current_user.chef? and current_page?(show_all_path))%>
+  <%=render 'search'%>
+  <%end%>
 
-<!--
-  <% @meals.each do |meal| %>
-    <div class="row small-up-2 medium-up-3 large-up-4 card filter-simple-item <%= meal.cuisine %>">
-        <div class="column column-block  ">
+  <div class="filter-mobile text-center">
+      <label for="check"> Filter</label></i>
+      <input id="check" type="checkbox">
+      <div class="dropdown">
+        <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
+        <button class="button hollow filter-simple-button" data-filter="chinese">Chinese</button>
+        <button class="button hollow filter-simple-button" data-filter="french">French</button>
+        <button class="button hollow filter-simple-button" data-filter="japanese">Japanese</button>
+        <button class="button hollow filter-simple-button" data-filter="vietnamese">Vietnamese</button>
+        <button class="button hollow filter-simple-button" data-filter="turkish">Turkish</button>
+        <button class="button hollow filter-simple-button" data-filter="american">American</button>
+        <button class="button hollow filter-simple-button" data-filter="others">Others</button>
+      </div>
+      </div>
+  </div>
+
+      
+  <% if current_user.chef? %>
+  <div class="row small-up-2 medium-up-3 large-up-4 text-center">
+            <%= link_to new_meal_path, class:"card plus-card column column-block text-center", style: "width:200px; height: 200px; margin-left: auto;
+      margin-right: auto;" do %>
+              <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+              </svg>
+              <h4>Add meal</h4>
+      <% end %>
+  </div>
+  <%end%>
+
+
+  <div class="grid-container fluid">
+      <div class="grid-x grid-margin-x text-center">
+
+    <% @meals.each do |meal| %>
+        <div class="cell small-12 medium-6 large-4 filter-simple-item <%= meal.cuisine %>">
           <%= link_to meal, value:"meal.cusine" do %>
-            <div class="image-container">
-              <%= image_tag(meal.image_url, class: "style-image") %>
-              
-              <div class="overlay-text">
-                <h6><strong><%= meal.name %></strong></h6>
-                <p>Cuisine: <%= meal.cuisine %>
-                <p>Description: <%= meal.description %></p> 
-                <p>Delivery time: <%= meal.delivery_time %></p>
-                <p>Chef: <%= meal.chef_name %></p>
-                <p><strong>Price: $<%= meal.price %></strong></p>
-              </div>
+          <div class="product-card">
+            <div class=product-card-thumbnail>
+              <%= image_tag(meal.image_url) %>  
             </div>
+            <h2 class="product-card-title"><%= meal.name %></h2>
+            <span class="product-card-cuisine">Cuisine: <%= meal.cuisine %></span><br/>
+            <span class="product-card-chef">By Chef: <%= meal.chef_name %></span><br/>
+            <span class="product-card-price">$<%= meal.price %></span><br/>
+          </div>
           <% end %>
         </div>
-    </div>
+    <% end %>
 
-  <% end %>
--->
-</section>
+      </div>
+  </div>
+
+  <!--
+    <% @meals.each do |meal| %>
+      <div class="row small-up-2 medium-up-3 large-up-4 card filter-simple-item <%= meal.cuisine %>">
+          <div class="column column-block  ">
+            <%= link_to meal, value:"meal.cusine" do %>
+              <div class="image-container">
+                <%= image_tag(meal.image_url, class: "style-image") %>
+                
+                <div class="overlay-text">
+                  <h6><strong><%= meal.name %></strong></h6>
+                  <p>Cuisine: <%= meal.cuisine %>
+                  <p>Description: <%= meal.description %></p> 
+                  <p>Delivery time: <%= meal.delivery_time %></p>
+                  <p>Chef: <%= meal.chef_name %></p>
+                  <p><strong>Price: $<%= meal.price %></strong></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      </div>
+
+    <% end %>
+  -->
+  </section>
+</div>
