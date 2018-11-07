@@ -3,6 +3,11 @@
           <a href= "<%= meals_path %>" class="footer-link">
             <i class="fi-home"></i> <span class='footer-text'>Home</span>
           </a>
+          <% if current_user.chef? %>
+          <a href= "<%= my_meals_path %>" class="footer-link">
+            <i class="fi-home"></i> <span class='footer-text'>my meals</span>
+          </a>
+          <% end %>
           <% if current_user.customer?%>
           <a href= <%= transactions_path %> class="footer-link">
             <i class="fi-list-bullet"></i> <span class='footer-text'>Order History</span>
@@ -16,5 +21,4 @@
             <i class="fi-torso"></i> <span class='footer-text'>Account Settings</span>
           </a>
         </nav>
-
 <% end %> 

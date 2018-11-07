@@ -54,7 +54,7 @@ class TransactionsController < ApplicationController
 
   def process_payment
     # @amount = amount_to_be_charged
-    @amount = set_amount
+    @amount = set_amount*100
     customer = Stripe::Customer.retrieve(current_user.stripe_id)
     customer.source = params[:stripeToken]
     customer.save
@@ -79,7 +79,7 @@ class TransactionsController < ApplicationController
   # end
   def set_amount
     meal = Meal.find(session[:meal_id])
-    @amount = meal.price * 100
+    meal.price 
   end
 
   def set_transaction
