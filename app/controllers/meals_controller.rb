@@ -7,20 +7,23 @@ class MealsController < ApplicationController
   # GET /meals.json
 
   def index
+    if session[:location].nil?
+      redirect_to new_location_path
+    end
     @meals = Meal.with_working_chef
-      check_location
-      search
-    end
+    check_location unless session[:location].nil?
+    search
+  end
 
-    def my_meals
-     @meals =  current_user.chef.meals
-    end
-      #   @meals = Meal.with_working_chef
-      #   check_location
-      #   search
-      #   render "index"
-      # end
+  def my_meals
+    @meals = current_user.chef.meals
+  end
 
+  #   @meals = Meal.with_working_chef
+  #   check_location
+  #   search
+  #   render "index"
+  # end
 
   # def index
   #   @meals = current_user.customer? ? Meal.with_working_chef : current_user.chef.meals
@@ -102,8 +105,10 @@ class MealsController < ApplicationController
   end
 
   def check_location
+    @location = Geocoder.search(session[:location])
+    @location = @location.first.coordinates
     @meals = @meals.select do |meal|
-      current_user.distance_to(meal.chef.user) < meal.chef.delivery_range
+      meal.chef.user.distance_to(@location) < meal.chef.delivery_range
     end
   end
 
@@ -120,6 +125,6 @@ class MealsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def meal_params
-    params.require(:meal).permit(:name, :show_all, :cuisine, :description, :price, :delivery_time, :image, :user_id)
+    params.require(:meal).permit(:name, :show_all, :cuisine, :description, :price, :delivery_time, :image, :user_id, :location)
   end
 end
