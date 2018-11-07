@@ -7,28 +7,15 @@ class MealsController < ApplicationController
   # GET /meals.json
 
   def index
-    @meals =
-      if current_user.customer? or params[:show_all]
-        Meal.includes(:chef, chef: :user).where(chef_id: Chef.where(currently_working: true))
-      elsif current_user.chef?
-        current_user.chef.meals
-      end
+    @meals = current_user.customer? ? Meal.with_working_chef : current_user.chef.meals
+    check_location
     search
-  end
-
-  def search
-    query = params[:search].to_s
-    if !params[:search].nil?
-      @meals = Meal.includes(:chef, chef: :user).references(:users)
-        .where(chef_id: Chef.where(currently_working: true))
-        .fuzzy_search({name: query, cuisine: query, users:{first_name: query, last_name: query}}, false)
-    end
   end
 
   def show_all
-    @meals = Meal.includes(:chef, chef: :user).where(chef_id: Chef.where(currently_working: true))
+    @meals = Meal.with_working_chef
+    check_location
     search
-
     render "index"
   end
 
@@ -87,6 +74,18 @@ class MealsController < ApplicationController
   end
 
   private
+
+  def search
+    if !params[:search].nil?
+      @meals = Meal.search_meal(params[:search])
+    end
+  end
+
+  def check_location
+    @meals = @meals.select do |meal|
+      current_user.distance_to(meal.chef.user) < meal.chef.delivery_range
+    end
+  end
 
   def check_chef
     if current_user.customer? or (!@meal.nil? and current_user.chef.id != @meal.chef_id)

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true, format: {with: /\A[a-zA-Z]+\z/,
                                                               message: "only allows letters"}
   # phone number: 10-14 digits, starting with a +?
-  validates :phone_number, format: {with: /\A+?\d{10,14}\z/,
+  validates :phone_number, format: {with: /\A+?\d{0,14}\z/,
                                     message: "needs to be 10 or more digits"}
   # adress
   validates :address, presence: true
@@ -19,8 +19,9 @@ class User < ApplicationRecord
   has_many :orders
   # create stripe id on registration
   after_create_commit :add_stripe_id
+  geocoded_by :address
+  after_validation :geocode, if: -> (obj) { obj.address.present? and obj.address_changed? }  # create stripe id
 
-  # create stripe id
   def add_stripe_id
     if self.stripe_id.nil?
       customer = Stripe::Customer.create(
