@@ -1,6 +1,5 @@
  <body class='container center'>
-  
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h1>Edit <%= resource_name.to_s.humanize %></h1>
     <% if current_user.chef?%>
         <%=render 'meals/switch'%>
         <%end%>
