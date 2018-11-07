@@ -21,11 +21,29 @@ https://github.com/IvanRahn/CasualMeals
     * AWS - S3
 
 ### Instructions on how to setup, configure and use your App.
-If you would like to see the code and test it out feel free to do so by following the below steps. Please note this is best performed on the terminal
+If you would like to see the code and test it out feel free to do so by following the below steps. Please note this is best performed on the terminal.
 
-Navigate to a directory where you would like the repository to be stored at, then run the following command  
+Navigate to a directory where you would like the repository to be stored at, then run the following commandline
 `git clone https://github.com/IvanRahn/CasualMeals.git`
 
+From here navigate in your newly cloned directory 
+`cd CasualMeals`
+
+Run the following line below to install the extensions/gems required for the application
+`bundle install`
+
+We now need to create a database
+`rails db:create`
+
+and then migrating them to the database
+`rails db:migrate`
+
+Boot up the server 
+`rails s` or `rails server`
+
+From here you can access the the application by typing the following web address in your browser
+localhost:3000 - automatic!
+[localhost:3000](localhost:3000)
 
 
 ## Design documentation
