@@ -24,8 +24,8 @@
 # )
 # chef.save
 
-for i in 1..10 do
-    customer = User.new(
+for i in 1..10
+  customer = User.new(
     email: "chef#{i}@test.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -43,15 +43,14 @@ for i in 1..10 do
     currently_working: true,
   )
   chef.save
-
-  meal = Meal.new(
-    name: Faker::Food.dish,
-    description: Faker::Food.description,
-    cuisine: ["chinese", "french", "japanese", "vietnamese", "turkish", "american", "others"].sample, #Faker::Nation.nationality,
-    price: Faker::Number.number(2),
-    delivery_time: 0,
-    chef_id: i,
-    remote_image_url: (Faker::LoremPixel.image("400x200", false, 'food'))
-  )
-  meal.save
+    meal = Meal.new(
+      name: Faker::Food.dish,
+      description: Faker::Food.description,
+      cuisine: ["chinese", "french", "japanese", "vietnamese", "turkish", "american", "others"].sample, #Faker::Nation.nationality,
+      price: Faker::Number.number(2),
+      delivery_time: 0,
+      chef_id: m,
+      remote_image_url: "http://www.bpimaging.com/assets/uploads/2016/12/toronto-food-pita.jpg",
+    )
+    meal.save
 end
