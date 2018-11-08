@@ -42,16 +42,6 @@ class TransactionsController < ApplicationController
     MealTransaction.create(meal_id: session[:meal_id].to_i, transaction_id: @transaction.id, sale_price: @amount)
   end
 
-  def update
-    respond_to do |format|
-      if @transaction.update(transaction_params)
-        format.html { redirect_to transactions_path, notice: "Meal was successfully updated." }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
   def process_payment
     # @amount = amount_to_be_charged
     @amount = set_amount

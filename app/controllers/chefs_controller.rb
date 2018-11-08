@@ -52,14 +52,7 @@ class ChefsController < ApplicationController
     end
   end
 
-  # DELETE /chefs/1
-  # DELETE /chefs/1.json
-  def destroy
-    @chef.destroy
-    respond_to do |format|
-      format.html { redirect_to chefs_url, notice: "Chef was successfully destroyed." }
-    end
-  end
+ 
 
   private
 

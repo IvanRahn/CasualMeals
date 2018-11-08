@@ -86,15 +86,7 @@ class MealsController < ApplicationController
     end
   end
 
-  # DELETE /meals/1
-  # DELETE /meals/1.json
-  def destroy
-    @meal.destroy
-    respond_to do |format|
-      format.html { redirect_to meals_url, notice: "Meal was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+
 
   private
 
