@@ -11,59 +11,120 @@ https://github.com/IvanRahn/CasualMeals
 ### Functionality / features
 
 ### Screenshots
+[image of application](https://loremflickr.com/320/240/dog)
+[image of application](https://loremflickr.com/320/240/dog)
+[image of application](https://loremflickr.com/320/240/dog)
+[image of application](https://loremflickr.com/320/240/dog)
 
 ### Tech stack (e.g. html, css, deployment platform, etc)
-    * html5 and css3
-    * Foundation Frameworks
-    * Ruby on Rails Framework
-    * Javascript
-    * Heroku
-    * AWS - S3
+  * html5 and css3
+  * Foundation Frameworks
+  * Ruby on Rails Framework
+  * Javascript
+  * Heroku
+  * AWS - S3
 
 ### Instructions on how to setup, configure and use your App.
 If you would like to see the code and test it out feel free to do so by following the below steps. Please note this is best performed on the terminal.
 
 Navigate to a directory where you would like the repository to be stored at, then run the following commandline
-`git clone https://github.com/IvanRahn/CasualMeals.git`
+    `git clone https://github.com/IvanRahn/CasualMeals.git`
 
 From here navigate in your newly cloned directory 
-`cd CasualMeals`
+    `cd CasualMeals`
 
 Run the following line below to install the extensions/gems required for the application
-`bundle install`
+    `bundle install`
 
 We now need to create a database
-`rails db:create`
+    `rails db:create`
 
 and then migrating them to the database
-`rails db:migrate`
+    `rails db:migrate`
 
 Boot up the server 
-`rails s` or `rails server`
+    `rails s` or `rails server`
 
 From here you can access the the application by typing the following web address in your browser
 localhost:3000 - automatic!
-[localhost:3000](localhost:3000)
+    `*localhost:3000*`
 
 
 ## Design documentation
 
-### Design process
+1. Goal: The purpose of the application was to develop a two sided marketplace platform where users can list their items to sell and users can purchase their items.
+
+2. Scope: To design, build, deploy and present a working website where users can list and purchase items. 
+    The project will need the following for the application:
+        * Postgresql database in development and production
+        * Have authentication for users
+        * Restrictions on what users can see and edit
+        * Uploading capabilities
+        * Implementing a payment system
+        * Deployed to Heroku
+        
+3. Visual Design: Much of our site design layout is based on deliveroo and uberEats with modifications. The modifications are based on our user stores which determine what features will be required for our application. The visual aspect was done through the use of a framework called Foundation.
+
+4. Testing: Testing was completed via a checklist on a spreadsheet, which lists out certain scenarios a user could do and from there we would pass or fail the scenarios.
+
+5. Launching: website is currently launched on heroku
 
 ### User stories
+    * Ryan wants to list the food he is cooking
+    * Garret wants to sign-up so that his details are saved
+    * Ryan wants to list the food he is cooking
+    * Gordon wants to sell his food consistently
+    * Gordon wants to sell his food leftovers
+    * Sinan wants to know more about the app
+    * Jamie wants to sign up so that his details are saved
+    * Garret would like to browse and find food he wants to order
+    * Garret wants to be able to pay for food safely 
+    * Garret would like to be able to order his food quickly
+    * Adam would like to order food in bulk
+    * Adam would like to order food consistently
+    * Ryan wants to recieve feedback on his food
+    * Jamie wants to notify his friends about the food he made
+    * Jamie wants to specify how far he can deliver food himself
+    * Ryan wants to have access to delivery drivers
+    * Gordon wants to recieve payment for his food
+    * Sinan would like to find cheap food
+    * Ghalip would like to have options for healthy/non-allergic food
+    * James would like to be able to find food by cuisines
 
 ### A workflow diagram of the user journey/s.
 
+
 ### Wireframes
 
-### Database Entity Relationship Diagrams
 
-### Details of planning process including,
+### Database Entity Relationship Diagrams
+[image of erb](https://loremflickr.com/320/240/dog)
+
+
+## Details of planning process
 
 ### Project plan & timeline
+Project Start - 29/10/18 
+Project End -  9/11/18
+
+29/10/18 - User stories, planning wireframe and entity relationship diagrams (ERD)
+30/10/18 - Developed basic authentication, models and their associations. Linking routes to their specified pages. Selected foundation as the framework to be used for styling. 
+31/10/18 - Begin Transactional model and stripe payment implementation, foundation added to code
+1/11/2018 - Navbar implemented into pages, stripe payment implementation and transactiontional model continues
+2/11/18 - form verification for models start, AWS integrated into code
+3/11/18 - foundation upgraded from 5 to 6, styling code begins
+4/11/18 - flash messages added for login, styling continues
+5/11/18 - fuzzy search and filter added
+6/11/18 - sales history added, media queries integrated and meal cards added
+7/11/18 - drop down filter button for mobile button added, search bar and query further extended, refactoring
+8/11/18 - Testing application / debugging / refactoring and documentation
+9/11/18 - Submission of Project
 
 ### Screenshots of Trello board(s)
-
+[image of mobile version](https://loremflickr.com/320/240/dog)
+[image of mobile version](https://loremflickr.com/320/240/dog)
+[image of desktop version](https://loremflickr.com/320/240/dog)
+[image of desktop version](https://loremflickr.com/320/240/dog)
 
 ### Short Answer Questions
 
@@ -154,3 +215,4 @@ data sanitaization
 22. Discuss methods you will use to protect information and data.
 A devise Ruby gem is being used as the gateway for our users to register and login, the Devise ruby gem uses another gem called BCrypt which is a password hashing function used to encrypt user passwords and store them in its encrypted state in our database. Our application is also deployed onto cloud application platform called Heroku, who praises themselves in their ability to protect customers from threats by applying security controls at every layer from physical to application.
 23. Research what your legal obligations are in relation to handling user data.
+
