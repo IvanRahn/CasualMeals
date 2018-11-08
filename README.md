@@ -21,7 +21,6 @@ The purpose of the application is to develop a two sided marketplace platform wh
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-2018-11-08-14_41_42.jpg?raw=true)
 
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-edit-2018-11-08-14_43_32.jpg?raw=true)
-
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-my_meals-2018-11-08-14_42_15.jpg?raw=true)
 
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-transactions-2018-11-08-14_43_21.jpg?raw=true)
@@ -108,16 +107,9 @@ From here you can access the the application by typing the following web address
  * James would like to be able to find food by cuisines
 
 ### Wireframes
-Customer Mobile View
 ![image of customer mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20View.png?raw=true)
-
-Chef Mobile View
 ![image of chef mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20View.png?raw=true)
-
-Customer Desktop View
 ![image of customer desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20Desktop%20View.png?raw=true)
-
-Chef Desktop View
 ![image of chef desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20Deskop%20View.png?raw=true)
 
 ### Database Entity Relationship Diagrams
@@ -208,15 +200,15 @@ We use MVC architecture. Model delas with database, storing/retrieving and manip
 
 Third party services that was utlised by our app is Stripe and AWS (Amazon Web Services) along with other gems, please see below:
 
-    * Stripe allows individuals and businesses to recieve payments over the internet. Stripe provides the technical, fraud prevention, and banking infrastructure required to orpeate on-line payment systems. The reason for its use is that it allows for easy and secure payment and is easily integrated into our application for a speedy deployment.
+   * Stripe allows individuals and businesses to recieve payments over the internet. Stripe provides the technical, fraud prevention, and banking infrastructure required to orpeate on-line payment systems. The reason for its use is that it allows for easy and secure payment and is easily integrated into our application for a speedy deployment.
 
-    * AWS is a secure cloud services platform that offers users storage in their databases, content delivery, and other functionaility to help businesses scale and grow. AWS was used in our application to securely store images that is uploaded from our application.
+   * AWS is a secure cloud services platform that offers users storage in their databases, content delivery, and other functionaility to help businesses scale and grow. AWS was used in our application to securely store images that is uploaded from our application.
 
-    * Carrierwave Gem - a gem that provides a simple way to upload files from Ruby application, the gem was used to assist in uploading images to AWS
+   * Carrierwave Gem - a gem that provides a simple way to upload files from Ruby application, the gem was used to assist in uploading images to AWS
 
-    * devise gem - a flexible authentication solution for based on warden. The devise gem was used to our application to assist in handling registering users and database authentication
+   * devise gem - a flexible authentication solution for based on warden. The devise gem was used to our application to assist in handling registering users and database authentication
 
-    * geocoder gem - enhances webpages by presenting location relevant to the user, has the functionaility such as finding coordinates with street addresses or vice versa. The gem is used to help extract a users longitudinal and latitudinal coordinates when they input their address.
+   * geocoder gem - enhances webpages by presenting location relevant to the user, has the functionaility such as finding coordinates with street addresses or vice versa. The gem is used to help extract a users longitudinal and latitudinal coordinates when they input their address.
 
 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
@@ -258,12 +250,16 @@ See the ERD above.
     * James would like to be able to find food by cuisines
 
 16. Provide Wireframes for your App.
+Customer Mobile View
 ![image of customer mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20View.png?raw=true)
 
+Chef Mobile View
 ![image of chef mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20View.png?raw=true)
 
+Customer Desktop View
 ![image of customer desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20Desktop%20View.png?raw=true)
 
+Chef Desktop View
 ![image of chef desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20Deskop%20View.png?raw=true)
 
 17. Describe the way tasks are allocated and tracked in your project.
