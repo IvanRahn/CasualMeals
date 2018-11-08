@@ -201,6 +201,7 @@ Third party services that was utlised by our app is Stripe and AWS (Amazon Web S
 Casual Meals data structure is similar to deliveroo and uberEats, where customers are able to purchase food from a supplier and suppliers are able to sell their foods. Casual Meals enables all users to be able to sign up whether they are a consumer (customer) or a supplier (chef). Chef's are able to upload their own meals and customers are able to view the meals cooked by the chef's for purchasing
 
 12. Discuss the database relations to be implemented.
+
 User has one chef and has many transactions. Transactions have many meals through meal_transactions. Chefs have many meals nad meals have many transactions through meal_transactions. 
 
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
