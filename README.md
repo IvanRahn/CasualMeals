@@ -263,11 +263,14 @@ Our testing process is broken down into three sections: chef, user and app. Test
 
 For example, as a chef or customer, I am able to login succesfully. An app test example is, a form has validation standards in place. 
 
+Link to excel sheet:
+https://docs.google.com/spreadsheets/d/17GMe6UZmnpotOIel0WoDX_o1hPfjOxjEww_8aPj1TnQ/edit?usp=sharing
+
 21. Discuss and analyse requirements related to information system security.
 
-HTTPS is a secure web protocol used to provide secure transactions for users online. HTTPS is the same as HTTP but comes with a Secure Sockets Layer (SSL) to monitor and transfer data between two points safely.  
-sql injections
-data sanitaization
+HTTPS is required to ensure the protection, itnegrity and privacy of the data exchanged between a server and a client.  HTTPS is the same as HTTP but comes with a Secure Sockets Layer (SSL) to monitor and transfer data between two points safely.  
+
+SQL Injections is a code injection technique used by hackers, inserting SQL statements into input fields to invade the SQL database. Utilising paramatized database queries will help prevent SQL Injection vulnerabilities. 
 
 22. Discuss methods you will use to protect information and data.
 
