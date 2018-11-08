@@ -124,7 +124,7 @@ foundation as the framework to be used for styling.
 
 4/11/18 - flash messages added for login, styling continues
 
-5/11/18 - fuzzy search and filter added
+5/11/18 - fuzzy search and filter added, geocoding added
 
 6/11/18 - sales history added, media queries integrated and meal cards added
 
@@ -152,7 +152,7 @@ To build a platform to allow chefs (from any level) to provide a product/service
 
 At the moment, there are many people happy to provide a food service (casually or on a full-time basis), however it is difficult for them to connect to potential customers. It’s a problem that needs solving as the market should allow for all levels of chefs.
 
-3. Describe the project will you be conducting and how. your App will address the needs.
+3. Describe the project you will be conducting and how your App will address the needs.
 
 Our project will let chefs make food from home and list it on our App. It allows buyers to search for home-made food they would like to order and have it delivered. 
 
@@ -162,23 +162,25 @@ For production our App will be deployed on Heroku, and AWS is where our database
 
 5. Identify and describe the software to be used in your App.
 
-Heroku offers a Platform as a Service (PaaS). In comparison to a Infrastructure as a Service (IaaS), PaaS provides an environment to push code with existing basic configuration. This means we are able to deploy our App quicker and do not have to worry about manually setting up configuration, where it is a simple process of moving our app from a local system to Heroku using GIT.
+Heroku offers a Platform as a Service (PaaS). In comparison to an Infrastructure as a Service (IaaS), PaaS provides an environment to push code with existing basic configuration. This means we are able to deploy our App quicker and do not have to worry about manually setting up configuration, where it is a simple process of moving our app from a local system to Heroku using GIT.
 
 AWS uses the Amazon Relationship Database Service (RDS), easy to set up, operate and scale a relational database in the cloud. RDS is compatible with six database engines, including Postgresql. 
 
 6. Identify the database to be used in your App and provide a justification for your choice.
 
-
-
 We will be using Postgresql as it the world’s most advanced open source database.
 
 7. Identify and describe the production database setup (i.e. postgres instance).
+
+See the ERD above.
 
 8. Describe the architecture of your App.
 
 Ruby on Rails (RoR) was the main framework used in our application. RoR follows the Model-View-Controller (MVC) architectural pattern. It also follows the rule of convention over configuration, which means that it takes some decision for you so you don't have to worry about these things.
 
 9. Explain the different high-level components (abstractions) in your App.
+
+We use MVC architecture. Model delas with database, storing/retrieving and manipulating data. View is what the users see on the screen. Controller connect the two together and direct users to pages.
 
 10. Detail any third party services that your App will use.
 
@@ -199,10 +201,15 @@ Third party services that was utlised by our app is Stripe and AWS (Amazon Web S
 Casual Meals data structure is similar to deliveroo and uberEats, where customers are able to purchase food from a supplier and suppliers are able to sell their foods. Casual Meals enables all users to be able to sign up whether they are a consumer (customer) or a supplier (chef). Chef's are able to upload their own meals and customers are able to view the meals cooked by the chef's for purchasing
 
 12. Discuss the database relations to be implemented.
+User has one chef and has many transactions. Transactions have many meals through meal_transactions. Chefs have many meals nad meals have many transactions through meal_transactions. 
 
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
+See question 12.
+
 14. Provide your database schema design.
+
+See the ERD above.
 
 15. Provide User stories for your App.
 
