@@ -43,14 +43,16 @@ for i in 1..10
     currently_working: true,
   )
   chef.save
+  10.times do
     meal = Meal.new(
       name: Faker::Food.dish,
       description: Faker::Food.description,
       cuisine: ["chinese", "french", "japanese", "vietnamese", "turkish", "american", "others"].sample, #Faker::Nation.nationality,
       price: Faker::Number.number(2),
       delivery_time: 0,
-      chef_id: m,
+      chef_id: i,
       remote_image_url: "http://www.bpimaging.com/assets/uploads/2016/12/toronto-food-pita.jpg",
     )
     meal.save
+    end
 end
