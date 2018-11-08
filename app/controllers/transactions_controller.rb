@@ -1,22 +1,16 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show]
-  # before_action :set_amount, only: [:show, :index, :create]
-
-  # before_action :add
-
+# show user's transactions
   def index
     @transactions = Transaction.where(user_id: current_user.id) 
 
     if current_user.chef?
       @meals = Meal.where(chef_id: current_user.chef.id)
       @meal_transactions = MealTransaction.where(meal_id: @meals.ids)
-      
-      @total_sales = @meal_transactions.sum(:sale_price) / 100
-      
+      @total_sales = @meal_transactions.sum(:sale_price)
     end
-
   end
-
+# take meal_id from params
   def new
     @transaction = Transaction.new
     session[:meal_id] = params[:meal_id]
@@ -25,13 +19,11 @@ class TransactionsController < ApplicationController
 
   def show
   end
-
+# create transaction and process payment
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
-
     process_payment
-
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: "Transaction created." }
@@ -39,11 +31,11 @@ class TransactionsController < ApplicationController
         format.html { render :new }
       end
     end
+    # create meal_transaction
     MealTransaction.create(meal_id: session[:meal_id].to_i, transaction_id: @transaction.id, sale_price: @amount)
   end
-
+# stripe
   def process_payment
-    # @amount = amount_to_be_charged
     @amount = set_amount
     customer = Stripe::Customer.retrieve(current_user.stripe_id)
     customer.source = params[:stripeToken]
@@ -53,7 +45,7 @@ class TransactionsController < ApplicationController
       :amount => @amount*100,
       :description => "Rails Stripe customer",
       :currency => "usd",
-      # :source => params[:stripeToken],
+      # :source => params[:stripeToken]
 
     )
     @transaction.charge_id = charge.id
@@ -63,15 +55,11 @@ class TransactionsController < ApplicationController
   end
 
   private
-
-  # def add
-  #   @transaction = Transaction.find(session[:transaction_id])
-  # end
+# set amount for stripe
   def set_amount
     meal = Meal.find(session[:meal_id])
     meal.price 
   end
-
   def set_transaction
     @transaction = Transaction.find(params[:id])
   end
@@ -80,10 +68,4 @@ class TransactionsController < ApplicationController
     params.require(:transaction).permit(:description, :delivery_address, :user_id, :meal_id)
   end
 
-  # def amount_to_be_charged
-  #   @items = MealTransaction.where(transaction_id: session[:transaction_id])
-  #   @total = @items.inject(0) { |sum, i| sum += i.meal.price }
-
-  #   @total
-  # end
 end

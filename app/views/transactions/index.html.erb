@@ -22,7 +22,7 @@
                 <td> <%= transaction.delivery_address %></td>
                 <td> <%= transaction.meals.first.cuisine %></td>
                 <td> <%= transaction.meals.first.name %></td>
-                <td>$<%= transaction.meal_transactions.first.formatstripe %></td>
+                <td>$<%= transaction.meals.first.price %></td>
                 <td> <%= transaction.time %></td>
               </tr>
             </div>
@@ -50,7 +50,7 @@
                 <td> <%= meal_transaction.meal.cuisine%>
                 <td> <%= meal_transaction.meal.name%>
                 <td> <%= meal_transaction.order.description%>
-                <td>$<%= meal_transaction.formatstripe %></td>
+                <td>$<%= meal_transaction.meal.price %></td>
                 <td> <%= meal_transaction.time %></td>
               </tr>
             </div>  

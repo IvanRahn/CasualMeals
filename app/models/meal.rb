@@ -10,8 +10,8 @@ class Meal < ApplicationRecord
   validates :cuisine, inclusion: {in: %w(chinese french japanese vietnamese turkish american others),
                                   message: "%{value} is not a cuisine"}
   # validate description
-  validates :description, format: {with: /\A\w[\w\d\s,.!?:]{10,}\z/,
-                                   message: "The description needs to be 10 or more characters"}
+  # validates :description, format: {with: /\A\w[\w\d\s,.!?:]{10,}\z/,
+                                  #  message: "The description needs to be 10 or more characters"}
   # validate price
   validates :price, format: {with: /\A\d{1,8}\z/}
   # validates name, image

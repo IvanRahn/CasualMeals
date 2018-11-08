@@ -36,6 +36,7 @@ class ChefsController < ApplicationController
     end
   end
 
+  #toggle chef currently_woking status
   def working
     current_user.chef.toggle(:currently_working).save
   end
@@ -52,10 +53,9 @@ class ChefsController < ApplicationController
     end
   end
 
- 
-
   private
 
+  # redirect if someone manualy tries to change route
   def check_chef
     redirect_to meals_path if current_user.chef.id.to_s != params[:id]
   end

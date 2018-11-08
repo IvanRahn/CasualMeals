@@ -56,6 +56,7 @@ Chef.all.each do |i|
       price: Faker::Number.number(2),
       delivery_time: Faker::Number.number(2),
       chef_id: i.id,
+      remote_image_url: "http://www.bpimaging.com/assets/uploads/2016/12/toronto-food-pita.jpg"
     )
     meal.save
   end

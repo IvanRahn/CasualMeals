@@ -7,37 +7,22 @@ class MealsController < ApplicationController
   # GET /meals.json
 
   def index
-    
+    #check if user entered location and redirect if they haven't
     if session[:location].nil?
       redirect_to new_location_path
     end
+    #show only meals where chef is currently working
     @meals = Meal.with_working_chef
+    # check the distance between chef and customer
     check_location unless session[:location].nil?
+    #search if search params entered
     search
   end
 
+  # chef's meals
   def my_meals
     @meals = current_user.chef.meals
   end
-
-  #   @meals = Meal.with_working_chef
-  #   check_location
-  #   search
-  #   render "index"
-  # end
-
-  # def index
-  #   @meals = current_user.customer? ? Meal.with_working_chef : current_user.chef.meals
-  #   check_location
-  #   search
-  # end
-
-  # def show_all
-  #   @meals = Meal.with_working_chef
-  #   check_location
-  #   search
-  #   render "index"
-  # end
 
   # GET /meals/1
   # GET /meals/1.json
@@ -47,6 +32,7 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
+    # redirect chef if they haven't ticked comply with NSW FSA regulations
     if !current_user.chef.verification
       flash[:notice] = "Please make sure you comply"
       redirect_to edit_chef_path(current_user.chef.id)
@@ -87,16 +73,16 @@ class MealsController < ApplicationController
     end
   end
 
-
-
   private
 
+  # search
   def search
     if !params[:search].nil?
       @meals = Meal.search_meal(params[:search])
     end
   end
 
+  # check location using geocoder
   def check_location
     @location = Geocoder.search(session[:location])
     @location = @location.first.coordinates
@@ -105,6 +91,7 @@ class MealsController < ApplicationController
     end
   end
 
+  # redirect user depending on role and meal
   def check_chef
     if current_user.customer? or (!@meal.nil? and current_user.chef.id != @meal.chef_id)
       redirect_to meals_path
