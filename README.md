@@ -11,10 +11,10 @@ https://github.com/IvanRahn/CasualMeals
 ### Functionality / features
 
 ### Screenshots
-[image of application](https://loremflickr.com/320/240/dog)
-[image of application](https://loremflickr.com/320/240/dog)
-[image of application](https://loremflickr.com/320/240/dog)
-[image of application](https://loremflickr.com/320/240/dog)
+![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-2018-11-08-14_41_42.jpg?raw=true)
+![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-edit-2018-11-08-14_43_32.jpg?raw=true)
+![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-my_meals-2018-11-08-14_42_15.jpg?raw=true)
+![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-transactions-2018-11-08-14_43_21.jpg?raw=true)
 
 ### Tech stack (e.g. html, css, deployment platform, etc)
   * html5 and css3
@@ -95,11 +95,13 @@ localhost:3000 - automatic!
 
 
 ### Wireframes
-
+![image of customer mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20View.png?raw=true)
+![image of chef mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20View.png?raw=true)
+![image of customer desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20Desktop%20View.png?raw=true)
+![image of chef desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20Deskop%20View.png?raw=true)
 
 ### Database Entity Relationship Diagrams
-[image of erb](https://loremflickr.com/320/240/dog)
-
+![image of erb](https://github.com/IvanRahn/CasualMeals/blob/development/docs/erd/ERD.png?raw=true)
 
 ## Details of planning process
 
@@ -121,10 +123,10 @@ Project End -  9/11/18
 9/11/18 - Submission of Project
 
 ### Screenshots of Trello board(s)
-[image of mobile version](https://loremflickr.com/320/240/dog)
-[image of mobile version](https://loremflickr.com/320/240/dog)
-[image of desktop version](https://loremflickr.com/320/240/dog)
-[image of desktop version](https://loremflickr.com/320/240/dog)
+![image of trello](https://github.com/IvanRahn/CasualMeals/blob/development/docs/trello%20screenshots/Screen%20Shot%202018-11-02%20at%209.27.03%20am.png?raw=true)
+![image of trello](https://github.com/IvanRahn/CasualMeals/blob/development/docs/trello%20screenshots/Screen%20Shot%202018-11-02%20at%209.29.47%20am.png?raw=true)
+![image of trello](https://github.com/IvanRahn/CasualMeals/blob/development/docs/trello%20screenshots/Screen%20Shot%202018-11-07%20at%202.24.46%20pm.png?raw=true)
+
 
 ### Short Answer Questions
 
