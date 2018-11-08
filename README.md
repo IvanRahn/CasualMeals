@@ -158,7 +158,7 @@ Our project will let chefs make food from home and list it on our App. It allows
 
 4. Describe the network infrastructure the App may be based on.
 
-Our App will be deployed on Heroku and AWS is where our database will be stored. 
+For production our App will be deployed on Heroku, and AWS is where our database will be stored. Heroku also setups up a DNS automatically providing us with a URL for all users to access. During the apps development stage, it is developed on the team members local machines. The web application can then be accessed locally on the default link localhost:3000, this is made possible with Rails which comes with an in built webserver called puma 
 
 5. Identify and describe the software to be used in your App.
 
@@ -167,6 +167,8 @@ Heroku offers a Platform as a Service (PaaS). In comparison to a Infrastructure 
 AWS uses the Amazon Relationship Database Service (RDS), easy to set up, operate and scale a relational database in the cloud. RDS is compatible with six database engines, including Postgresql. 
 
 6. Identify the database to be used in your App and provide a justification for your choice.
+
+
 
 We will be using Postgresql as it the world’s most advanced open source database.
 
