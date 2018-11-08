@@ -67,9 +67,9 @@ From here you can access the the application by typing the following web address
 
 ## Design documentation
 
-1. Goal: The purpose of the application was to develop a two sided marketplace platform where users can list their items to sell and users can purchase their items.
+>> 1. Goal: The purpose of the application was to develop a two sided marketplace platform where users can list their items to sell and users can purchase their items.
 
-2. Scope: To design, build, deploy and present a working website where users can list and purchase items. 
+>>2. Scope: To design, build, deploy and present a working website where users can list and purchase items. 
     The project will need the following for the application:
  * Postgresql database in development and production
  * Have authentication for users
