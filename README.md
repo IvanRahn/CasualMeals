@@ -254,6 +254,7 @@ Link to interactive ERD - https://dbdiagram.io/d/5be3db5714c9fe0014e4873e
     * James would like to be able to find food by cuisines
 
 16. Provide Wireframes for your App.
+
 Customer Mobile View
 ![image of customer mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20View.png?raw=true)
 
