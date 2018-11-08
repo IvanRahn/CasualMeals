@@ -208,11 +208,23 @@ Daily Stand-up meetings were put in place to provide individual updates includin
 Team members will be working collaboratively on the same git repository as a contributer. One team member will create the git repository on a remote repository GitHub. Team members will develop branches as they work on new features on the new application, sub-branches can also be created if additional sub-features may be required. Features will be merged into a development branch for review. Once team members agree on the working feature the development branch is merged into the master branch.
 
 20. Provide an overview and description of your Testing process.
+Our testing process is broken down into three sections: chef, user and app. Test cases are written for each section and have an expected and actual result component.
+
+For example, as a chef or customer, I am able to login succesfully. An app test example is, a form has validation standards in place. 
+
 21. Discuss and analyse requirements related to information system security.
 Https
 sql injections
 data sanitaization
+
 22. Discuss methods you will use to protect information and data.
 A devise Ruby gem is being used as the gateway for our users to register and login, the Devise ruby gem uses another gem called BCrypt which is a password hashing function used to encrypt user passwords and store them in its encrypted state in our database. Our application is also deployed onto cloud application platform called Heroku, who praises themselves in their ability to protect customers from threats by applying security controls at every layer from physical to application.
+
+We use Stripe to process payments and have no access/view to the card data. This means all payment details are abstracted to Stripe and minimise our risk of mishandling customers’ financial details. Stripe is certified as a PCI (Payment Card Industry) Level 1 Service Provider.
+
 23. Research what your legal obligations are in relation to handling user data.
+Our legal obligations include complying with the Privacy Act 1988 as we collect personal information about individuals in order to conduct a service. The key obligations are: 
+- Taking reasonable steps to protect information from misuse
+- Allow individuals to access their personal information
+- Not misusing information for other than its intended purpose 
 
