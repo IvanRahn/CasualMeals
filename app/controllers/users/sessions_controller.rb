@@ -14,6 +14,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
+  # toggle currently_working to off on log out
   def destroy
     if current_user.chef?
     current_user.chef.currently_working = false
