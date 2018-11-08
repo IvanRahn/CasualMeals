@@ -1,5 +1,6 @@
-
-<div class="search-container">
+ <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+<div class="search-container cell">
 <%= form_tag meals_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <div class="submit-block">
@@ -7,5 +8,6 @@
     <%= link_to "Clear", meals_path, onClick:"location.reload()"%>
     </div>
 <% end %>
-
+</div>
+</div>
 </div>

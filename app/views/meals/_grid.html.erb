@@ -3,7 +3,7 @@
       <div class="grid-x grid-margin-x text-center">
 
     <% @meals.each do |meal| %>
-        <div class="cell small-12 medium-6 large-4 filter-simple-item <%= meal.cuisine %>">
+        <div class="cell small-12 medium-6 large-3 filter-simple-item <%= meal.cuisine %>">
           <%= link_to meal, value:"meal.cusine" do %>
           <div class="product-card">
             <div class="product-card-thumbnail">

@@ -7,6 +7,7 @@ class MealsController < ApplicationController
   # GET /meals.json
 
   def index
+    
     if session[:location].nil?
       redirect_to new_location_path
     end
