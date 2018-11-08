@@ -7,13 +7,22 @@ https://github.com/IvanRahn/CasualMeals
 
 ### About the Project (Purpose definition)
 
+The purpose of the application is to develop a two sided marketplace platform where chefs can list and sell their meals and customers can view and purchase a chef's meal.
 
 ### Functionality / features
 
+ * Responsive website that will adjust itself based on user device to ensure that no side scrolling will be required.
+ * Search and Filter Button, fuzzy search and filter implemented to sort meals via cuisines, chefs or meal names
+ * Geocoder, provides latitudinal and longitudinal coordinates to allow chefs to distribute their meals in a set radius.
+ * Stripe payment system, secure payment system for users to pay for meals
+ * AWS - S3, secure service to for chefs to upload images of their meals
+
 ### Screenshots
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-2018-11-08-14_41_42.jpg?raw=true)
+
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-edit-2018-11-08-14_43_32.jpg?raw=true)
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-my_meals-2018-11-08-14_42_15.jpg?raw=true)
+
 ![image of application](https://github.com/IvanRahn/CasualMeals/blob/development/docs/application%20screenshots/screencapture-casualmeals-herokuapp-transactions-2018-11-08-14_43_21.jpg?raw=true)
 
 ### Tech stack (e.g. html, css, deployment platform, etc)
@@ -28,26 +37,32 @@ https://github.com/IvanRahn/CasualMeals
 If you would like to see the code and test it out feel free to do so by following the below steps. Please note this is best performed on the terminal.
 
 Navigate to a directory where you would like the repository to be stored at, then run the following commandline
-    `git clone https://github.com/IvanRahn/CasualMeals.git`
+
+    git clone https://github.com/IvanRahn/CasualMeals.git
 
 From here navigate in your newly cloned directory 
-    `cd CasualMeals`
+
+    cd CasualMeals
 
 Run the following line below to install the extensions/gems required for the application
-    `bundle install`
+
+    bundle install
 
 We now need to create a database
-    `rails db:create`
+
+    rails db:create
 
 and then migrating them to the database
-    `rails db:migrate`
+
+    rails db:migrate
 
 Boot up the server 
-    `rails s` or `rails server`
+
+    rails s or rails server
 
 From here you can access the the application by typing the following web address in your browser
-localhost:3000 - automatic!
-    `*localhost:3000*`
+
+    localhost:3000
 
 
 ## Design documentation
@@ -91,9 +106,6 @@ localhost:3000 - automatic!
  * Ghalip would like to have options for healthy/non-allergic food
  * James would like to be able to find food by cuisines
 
-### A workflow diagram of the user journey/s.
-
-
 ### Wireframes
 ![image of customer mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20View.png?raw=true)
 ![image of chef mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20View.png?raw=true)
@@ -101,6 +113,8 @@ localhost:3000 - automatic!
 ![image of chef desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20Deskop%20View.png?raw=true)
 
 ### Database Entity Relationship Diagrams
+Link to interactive ERD - https://dbdiagram.io/d/5be3db5714c9fe0014e4873e
+
 ![image of erb](https://github.com/IvanRahn/CasualMeals/blob/development/docs/erd/ERD.png?raw=true)
 
 ## Details of planning process
@@ -237,8 +251,11 @@ See the ERD above.
 
 16. Provide Wireframes for your App.
 ![image of customer mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20View.png?raw=true)
+
 ![image of chef mobile version wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20View.png?raw=true)
+
 ![image of customer desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Customer%20Desktop%20View.png?raw=true)
+
 ![image of chef desktop wireframe](https://github.com/IvanRahn/CasualMeals/blob/development/docs/wireframe/Chef%20Deskop%20View.png?raw=true)
 
 17. Describe the way tasks are allocated and tracked in your project.
