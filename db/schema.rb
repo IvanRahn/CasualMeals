@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_053510) do
+ActiveRecord::Schema.define(version: 2018_11_08_045146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2018_11_07_053510) do
     t.string "address"
     t.integer "type_of_user"
     t.string "stripe_id"
-    t.float "latitude"
-    t.float "longitude"
+    t.float "latitude", default: -33.8830555556
+    t.float "longitude", default: 151.216666667
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
