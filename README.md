@@ -67,9 +67,9 @@ From here you can access the the application by typing the following web address
 
 ## Design documentation
 
->> 1. Goal: The purpose of the application was to develop a two sided marketplace platform where users can list their items to sell and users can purchase their items.
+1. Goal: The purpose of the application was to develop a two sided marketplace platform where users can list their items to sell and users can purchase their items.
 
->>2. Scope: To design, build, deploy and present a working website where users can list and purchase items. 
+2. Scope: To design, build, deploy and present a working website where users can list and purchase items. 
     The project will need the following for the application:
  * Postgresql database in development and production
  * Have authentication for users
@@ -158,7 +158,7 @@ foundation as the framework to be used for styling.
 
 ### Short Answer Questions
 
->> 1. What is the need (i.e. challenge) that you will be addressing in your project?
+1. What is the need (i.e. challenge) that you will be addressing in your project?
 
 To build a platform to allow chefs (from any level) to provide a product/service to the market. 
 
@@ -186,7 +186,9 @@ We will be using Postgresql as it the world’s most advanced open source databa
 
 7. Identify and describe the production database setup (i.e. postgres instance).
 
-See the ERD above.
+Link to interactive ERD - https://dbdiagram.io/d/5be3db5714c9fe0014e4873e
+
+![image of erb](https://github.com/IvanRahn/CasualMeals/blob/development/docs/erd/ERD.png?raw=true)
 
 8. Describe the architecture of your App.
 
@@ -194,7 +196,7 @@ Ruby on Rails (RoR) was the main framework used in our application. RoR follows 
 
 9. Explain the different high-level components (abstractions) in your App.
 
-We use MVC architecture. Model delas with database, storing/retrieving and manipulating data. View is what the users see on the screen. Controller connect the two together and direct users to pages.
+We use MVC architecture. Model deals with database, storing/retrieving and manipulating data. View is what the users see on the screen. Controller connect the two together and direct users to pages.
 
 10. Detail any third party services that your App will use.
 
@@ -224,7 +226,9 @@ See question 12.
 
 14. Provide your database schema design.
 
-See the ERD above.
+Link to interactive ERD - https://dbdiagram.io/d/5be3db5714c9fe0014e4873e
+
+![image of erb](https://github.com/IvanRahn/CasualMeals/blob/development/docs/erd/ERD.png?raw=true)
 
 15. Provide User stories for your App.
 
