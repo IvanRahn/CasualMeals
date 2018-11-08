@@ -7,30 +7,37 @@ class MealsController < ApplicationController
   # GET /meals.json
 
   def index
-    @meals =
-      if current_user.customer? or params[:show_all]
-        Meal.includes(:chef, chef: :user).where(chef_id: Chef.where(currently_working: true))
-      elsif current_user.chef?
-        current_user.chef.meals
-      end
-    search
-  end
-
-  def search
-    query = params[:search].to_s
-    if !params[:search].nil?
-      @meals = Meal.includes(:chef, chef: :user).references(:users)
-        .where(chef_id: Chef.where(currently_working: true))
-        .fuzzy_search({name: query, cuisine: query, users:{first_name: query, last_name: query}}, false)
+    
+    if session[:location].nil?
+      redirect_to new_location_path
     end
-  end
-
-  def show_all
-    @meals = Meal.includes(:chef, chef: :user).where(chef_id: Chef.where(currently_working: true))
+    @meals = Meal.with_working_chef
+    check_location unless session[:location].nil?
     search
-
-    render "index"
   end
+
+  def my_meals
+    @meals = current_user.chef.meals
+  end
+
+  #   @meals = Meal.with_working_chef
+  #   check_location
+  #   search
+  #   render "index"
+  # end
+
+  # def index
+  #   @meals = current_user.customer? ? Meal.with_working_chef : current_user.chef.meals
+  #   check_location
+  #   search
+  # end
+
+  # def show_all
+  #   @meals = Meal.with_working_chef
+  #   check_location
+  #   search
+  #   render "index"
+  # end
 
   # GET /meals/1
   # GET /meals/1.json
@@ -40,6 +47,10 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
+    if !current_user.chef.verification
+      flash[:notice] = "Please make sure you comply"
+      redirect_to edit_chef_path(current_user.chef.id)
+    end
   end
 
   # GET /meals/1/edit
@@ -76,17 +87,23 @@ class MealsController < ApplicationController
     end
   end
 
-  # DELETE /meals/1
-  # DELETE /meals/1.json
-  def destroy
-    @meal.destroy
-    respond_to do |format|
-      format.html { redirect_to meals_url, notice: "Meal was successfully destroyed." }
-      format.json { head :no_content }
+
+
+  private
+
+  def search
+    if !params[:search].nil?
+      @meals = Meal.search_meal(params[:search])
     end
   end
 
-  private
+  def check_location
+    @location = Geocoder.search(session[:location])
+    @location = @location.first.coordinates
+    @meals = @meals.select do |meal|
+      meal.chef.user.distance_to(@location) < meal.chef.delivery_range
+    end
+  end
 
   def check_chef
     if current_user.customer? or (!@meal.nil? and current_user.chef.id != @meal.chef_id)
@@ -101,6 +118,6 @@ class MealsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def meal_params
-    params.require(:meal).permit(:name, :show_all, :cuisine, :description, :price, :delivery_time, :image, :user_id)
+    params.require(:meal).permit(:name, :show_all, :cuisine, :description, :price, :delivery_time, :image, :user_id, :location)
   end
 end

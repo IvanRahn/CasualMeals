@@ -85,3 +85,5 @@ gem 'foundation-rails', "~> 6.4"
 gem 'autoprefixer-rails'
 
 gem "textacular", "~> 5.1"
+
+gem "geocoder", "~> 1.5"

@@ -2,15 +2,12 @@ class ChefsController < ApplicationController
   #authenticate that the user is a chef in order to allow access to CRUD actions and their specific dishes, all chefs can view each other's chefs
   #customer should only have show access
   # before_action :authenticate_user!
-  before_action :set_chef, only: [:show, :edit, :update, :destroy]
-  before_action :check_chef, only: [:show, :edit, :update, :destroy]
+  before_action :set_chef, only: [:edit, :update, :destroy]
+  before_action :check_chef, only: [:edit, :update, :destroy]
   # GET /chefs/1
   # GET /chefs/1.json
   def index
     @chefs = Chef.all
-  end
-
-  def show
   end
 
   # GET /chefs/new
@@ -30,7 +27,7 @@ class ChefsController < ApplicationController
 
     respond_to do |format|
       if @chef.save
-        format.html { redirect_to meals_path, notice: "Chef was successfully created." }
+        format.html { redirect_to my_meals_path, notice: "Chef was successfully created." }
         format.json { render :show, status: :created, location: @chef }
       else
         format.html { render :new }
@@ -48,21 +45,14 @@ class ChefsController < ApplicationController
   def update
     respond_to do |format|
       if @chef.update(chef_params)
-        format.html { redirect_to @chef, notice: "Chef was successfully updated." }
+        format.html { redirect_to my_meals_path, notice: "Chef was successfully updated." }
       else
         format.html { render :edit }
       end
     end
   end
 
-  # DELETE /chefs/1
-  # DELETE /chefs/1.json
-  def destroy
-    @chef.destroy
-    respond_to do |format|
-      format.html { redirect_to chefs_url, notice: "Chef was successfully destroyed." }
-    end
-  end
+ 
 
   private
 

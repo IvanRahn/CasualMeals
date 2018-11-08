@@ -1,4 +1,4 @@
-<div class='test'>
+<div class='history'>
   <% if current_user.customer? %>
 
     <h1> Order History </h1>
@@ -7,7 +7,8 @@
           <tr>
             <th> Description </th>
             <th> Delivery Address </th>
-            <th> Cuisine Name </th>
+            <th> Cuisine </th>
+            <th> Meal </th>
             <th> Price </th>
             <th> Date Purchased </th>
           </tr>
@@ -20,6 +21,7 @@
                 <td> <%= transaction.description %></td>
                 <td> <%= transaction.delivery_address %></td>
                 <td> <%= transaction.meals.first.cuisine %></td>
+                <td> <%= transaction.meals.first.name %></td>
                 <td>$<%= transaction.meal_transactions.first.formatstripe %></td>
                 <td> <%= transaction.time %></td>
               </tr>
@@ -33,7 +35,8 @@
         <table>
           <thead>
             <tr>
-              <th> Cuisine Name </th>
+              <th> Cuisine </th>
+              <th> Meal </th>
               <th> Description </th>
               <th> Price </th>
               <th> Sale Date </th>
@@ -45,6 +48,7 @@
             <div>
               <tr>
                 <td> <%= meal_transaction.meal.cuisine%>
+                <td> <%= meal_transaction.meal.name%>
                 <td> <%= meal_transaction.order.description%>
                 <td>$<%= meal_transaction.formatstripe %></td>
                 <td> <%= meal_transaction.time %></td>

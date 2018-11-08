@@ -20,6 +20,7 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     session[:meal_id] = params[:meal_id]
+    @amount = set_amount
   end
 
   def show
@@ -39,17 +40,6 @@ class TransactionsController < ApplicationController
       end
     end
     MealTransaction.create(meal_id: session[:meal_id].to_i, transaction_id: @transaction.id, sale_price: @amount)
-    session[:transaction_id] = @transaction.id
-  end
-
-  def update
-    respond_to do |format|
-      if @transaction.update(transaction_params)
-        format.html { redirect_to transactions_path, notice: "Meal was successfully updated." }
-      else
-        format.html { render :edit }
-      end
-    end
   end
 
   def process_payment
@@ -60,7 +50,7 @@ class TransactionsController < ApplicationController
     customer.save
     charge = Stripe::Charge.create(
       :customer => current_user.stripe_id,
-      :amount => @amount,
+      :amount => @amount*100,
       :description => "Rails Stripe customer",
       :currency => "usd",
       # :source => params[:stripeToken],
@@ -79,7 +69,7 @@ class TransactionsController < ApplicationController
   # end
   def set_amount
     meal = Meal.find(session[:meal_id])
-    @amount = meal.price * 100
+    meal.price 
   end
 
   def set_transaction
@@ -87,7 +77,7 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:description, :delivery_address, :user_id, :meal_id, :stipe_id)
+    params.require(:transaction).permit(:description, :delivery_address, :user_id, :meal_id)
   end
 
   # def amount_to_be_charged

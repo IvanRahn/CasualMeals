@@ -1,11 +1,7 @@
-<div class='container'>
-  <div class='center'>
-
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-    <% if current_user.chef?%>
-        <%=render 'meals/switch'%>
-        <%end%>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete if user_signed_in? %>
+ <body class='container center'>
+    <h1>Edit <%= resource_name.to_s.humanize %></h1>
+    
+    <%= link_to "Logout", destroy_user_session_path, class: "button float-right", method: :delete if user_signed_in? %>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <div class="form-icons">
@@ -89,11 +85,7 @@
       <% end %>
     <% end %>
 
-    <h3>Cancel my account</h3>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-    <%= link_to "Back", :back %>
-</div>
-</div>
+</body>
 
  
