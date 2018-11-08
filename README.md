@@ -158,7 +158,7 @@ foundation as the framework to be used for styling.
 
 ### Short Answer Questions
 
-1. What is the need (i.e. challenge) that you will be addressing in your project?
+>> 1. What is the need (i.e. challenge) that you will be addressing in your project?
 
 To build a platform to allow chefs (from any level) to provide a product/service to the market. 
 
