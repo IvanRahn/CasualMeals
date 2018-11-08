@@ -217,7 +217,7 @@ Our testing process is broken down into three sections: chef, user and app. Test
 For example, as a chef or customer, I am able to login succesfully. An app test example is, a form has validation standards in place. 
 
 21. Discuss and analyse requirements related to information system security.
-Https
+HTTPS is a secure web protocol used to provide secure transactions for users online. HTTPS is the same as HTTP but comes with a Secure Sockets Layer (SSL) to monitor and transfer data between two points safely.  
 sql injections
 data sanitaization
 
