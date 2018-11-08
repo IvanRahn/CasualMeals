@@ -137,7 +137,7 @@ To build a platform to allow chefs (from any level) to provide a product/service
 At the moment, there are many people happy to provide a food service (casually or on a full-time basis), however it is difficult for them to connect to potential customers. It’s a problem that needs solving as the market should allow for all levels of chefs.
 
 3. Describe the project will you be conducting and how. your App will address the needs.
-Our project will let chefs make food from home and list it on our App. It allow allow buyers to search for home-made food they would like to order and have it delivered. 
+Our project will let chefs make food from home and list it on our App. It allows buyers to search for home-made food they would like to order and have it delivered. 
 
 4. Describe the network infrastructure the App may be based on.
 Our App will be deployed on Heroku and AWS is where our database will be stored. 
@@ -202,6 +202,8 @@ Casual Meals data structure is similar to deliveroo and uberEats, where customer
 17. Describe the way tasks are allocated and tracked in your project.
 Trello will be our main tool for managing the project, tasks will be allocated to team members and updated by the team member.
 
+As tasks are worked on, they are moved to the corresponding section, e.g. task is complete, hence moves to the ‘completed’ section. Furthermore, we use labels to detail our tasks, e.g. who is working on which task and the priority of each task. Using Trello as a visual tool helps us easily track our work. 
+
 18. Discuss how Agile methodology is being implemented in your project.
 Our project is based on user stories, an example would be "James would like to be able to find food by cuisines". Each story would then be split into tasks and this would determine what feature will be required to be implemented into our project and in this case a filter or search button would need to be implemented. 
 Daily Stand-up meetings were put in place to provide individual updates including work progress and issues we are having, this also provided the team an opportunity to review the work and suggest any changes as required. Standing up helps us keep focused and on point. 
@@ -209,12 +211,26 @@ Daily Stand-up meetings were put in place to provide individual updates includin
 19. Provide an overview and description of your Source control process.
 Team members will be working collaboratively on the same git repository as a contributer. One team member will create the git repository on a remote repository GitHub. Team members will develop branches as they work on new features on the new application, sub-branches can also be created if additional sub-features may be required. Features will be merged into a development branch for review. Once team members agree on the working feature the development branch is merged into the master branch.
 
+The branching strategy allows to seperate our working code and our broken code, an essential component in a team environment. 
+
 20. Provide an overview and description of your Testing process.
+Our testing process is broken down into three sections: chef, user and app. Test cases are written for each section and have an expected and actual result component.
+
+For example, as a chef or customer, I am able to login succesfully. An app test example is, a form has validation standards in place. 
+
 21. Discuss and analyse requirements related to information system security.
-Https
+HTTPS is a secure web protocol used to provide secure transactions for users online. HTTPS is the same as HTTP but comes with a Secure Sockets Layer (SSL) to monitor and transfer data between two points safely.  
 sql injections
 data sanitaization
+
 22. Discuss methods you will use to protect information and data.
 A devise Ruby gem is being used as the gateway for our users to register and login, the Devise ruby gem uses another gem called BCrypt which is a password hashing function used to encrypt user passwords and store them in its encrypted state in our database. Our application is also deployed onto cloud application platform called Heroku, who praises themselves in their ability to protect customers from threats by applying security controls at every layer from physical to application.
+
+We use Stripe to process payments and have no access/view to the card data. This means all payment details are abstracted to Stripe and minimise our risk of mishandling customers’ financial details. Stripe is certified as a PCI (Payment Card Industry) Level 1 Service Provider.
+
 23. Research what your legal obligations are in relation to handling user data.
+Our legal obligations include complying with the Privacy Act 1988 as we collect personal information about individuals in order to conduct a service. The key obligations are: 
+- Taking reasonable steps to protect information from misuse
+- Allow individuals to access their personal information
+- Not misusing information for other than its intended purpose 
 
