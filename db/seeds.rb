@@ -7,24 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # customer seed
-customer = User.new(
-  email: "customer@gmail.com",
-  password: "password",
-  type_of_user: 0,
-  first_name: "customer",
-)
-customer.save
+# customer = User.new(
+#   email: "customer@gmail.com",
+#   password: "password",
+#   type_of_user: 0,
+#   first_name: "customer",
+# )
+# customer.save
 
-# chef seed
-chef = User.new(
-  email: "chef@gmail.com",
-  password: "password",
-  type_of_user: "chef",
-  first_name: "chef",
-)
-chef.save
+# # chef seed
+# chef = User.new(
+#   email: "chef@gmail.com",
+#   password: "password",
+#   type_of_user: "chef",
+#   first_name: "chef",
+# )
+# chef.save
 
-30.times do |i|
+for i in 1..10
   customer = User.new(
     email: "chef#{i}@test.com",
     first_name: Faker::Name.first_name,
@@ -32,31 +32,26 @@ chef.save
     password: "123123",
     phone_number: 041234567,
     type_of_user: 1,
-    stripe_id: Stripe::Customer.create(),
+    address: "Waterloo, NSW 2017",
   )
   customer.save
-end
 
-User.where(type_of_user: 1 ).each do |i|
   chef = Chef.new(
     delivery_range: "5km",
     verification: true,
-    user_id: i.id,
+    user_id: i,
     currently_working: true,
   )
   chef.save
-end
-
-Chef.all.each do |i|
   10.times do
     meal = Meal.new(
       name: Faker::Food.dish,
       description: Faker::Food.description,
-      cuisine: ['chinese','french','japanese','vietnamese','turkish','american','others'].sample,#Faker::Nation.nationality,
+      cuisine: ["chinese", "french", "japanese", "vietnamese", "turkish", "american", "others"].sample, #Faker::Nation.nationality,
       price: Faker::Number.number(2),
-      delivery_time: Faker::Number.number(2),
-      chef_id: i.id,
-      remote_image_url: "http://www.bpimaging.com/assets/uploads/2016/12/toronto-food-pita.jpg"
+      delivery_time: 0,
+      chef_id: i,
+      remote_image_url: "http://www.bpimaging.com/assets/uploads/2016/12/toronto-food-pita.jpg",
     )
     meal.save
   end
